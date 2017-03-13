@@ -46,11 +46,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\MORPH3D\Vendor\Unity\Shaders\Hair\HairRenderer.cs" />
+     <Compile Include="Assets\MORPH3D\Vendor\Unity\Shaders\UniqueShadow\UniqueShadow.cs" />
+     <Compile Include="Assets\MORPH3D\Vendor\Unity\Shaders\UniqueShadow\UniqueShadowSun.cs" />
+     <Compile Include="Assets\Mixamo\Melee Axe Pack\Demo\CameraScroll.cs" />
      <Compile Include="Assets\Scripts\Armor.cs" />
      <Compile Include="Assets\Scripts\ConsumableItem.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\Weapon.cs" />
+     <Compile Include="Assets\Scripts\testController.cs" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\Standard\StandardSpecular-doublesided.shader" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\Hair\Hair_Universal.shader" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\Skin\Volund_UnityStandardCore.cginc" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\UniqueShadow\UniqueShadow_ShadowSample.cginc" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\Hair\Hair_UnityStandardInput.cginc" />
+     <None Include="Assets\MORPH3D\Resources\Shaders\AlphaCombiner.shader" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\Standard\Standard-doublesided.shader" />
+     <None Include="Assets\MORPH3D\README.txt" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\Standard\Standard-2pass-doublesided-half depth.shader" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\Standard\Standard-2pass-doublesided.shader" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\Skin\MorphSkinDeferred.shader" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\Hair\Hair_setup.cginc" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\Skin\Volund_UnityStandardInput.cginc" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\Hair\Hair_UnityStandardCore.cginc" />
+     <None Include="Assets\MORPH3D\Resources\Shaders\EyeAndLash.shader" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\UniqueShadow\UniqueShadow_DepthOnly.shader" />
+     <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\Skin\Volund_StandardSpecularCharacter.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -68,6 +90,18 @@
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="M3D_DLL">
+ <HintPath>C:/Users/Ryan/Documents/419I_Project/Assets/MORPH3D/Scripts/Plugins/M3D_DLL.dll</HintPath>
+ </Reference>
+ <Reference Include="M3DIMPORT_DLL">
+ <HintPath>C:/Users/Ryan/Documents/419I_Project/Assets/MORPH3D/Scripts/Plugins/M3DIMPORT_DLL.dll</HintPath>
+ </Reference>
+ <Reference Include="ICSharpCode.SharpZipLib">
+ <HintPath>C:/Users/Ryan/Documents/419I_Project/Assets/MORPH3D/Scripts/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
+ </Reference>
+ <Reference Include="MCS_Utilities">
+ <HintPath>C:/Users/Ryan/Documents/419I_Project/Assets/MORPH3D/Scripts/Plugins/MCS_Utilities.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
