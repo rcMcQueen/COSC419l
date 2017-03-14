@@ -7,8 +7,8 @@
       <File FileName="Assets\Scripts\ConsumableItem.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Weapon.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Armor.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\testController.cs" Line="4" Column="1" />
-      <File FileName="Assets\Scripts\PlayerControl.cs" Line="15" Column="3" />
+      <File FileName="Assets\Scripts\testController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerControl.cs" Line="34" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
