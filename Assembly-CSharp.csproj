@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\ConsumableItem.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
+     <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Scripts\testController.cs" />
      <None Include="Assets\MORPH3D\Vendor\Unity\Shaders\Standard\StandardSpecular-doublesided.shader" />
@@ -91,14 +92,14 @@
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
- <Reference Include="M3D_DLL">
- <HintPath>C:/Users/Ryan/Documents/419I_Project/Assets/MORPH3D/Scripts/Plugins/M3D_DLL.dll</HintPath>
+ <Reference Include="ICSharpCode.SharpZipLib">
+ <HintPath>C:/Users/Ryan/Documents/419I_Project/Assets/MORPH3D/Scripts/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
  </Reference>
  <Reference Include="M3DIMPORT_DLL">
  <HintPath>C:/Users/Ryan/Documents/419I_Project/Assets/MORPH3D/Scripts/Plugins/M3DIMPORT_DLL.dll</HintPath>
  </Reference>
- <Reference Include="ICSharpCode.SharpZipLib">
- <HintPath>C:/Users/Ryan/Documents/419I_Project/Assets/MORPH3D/Scripts/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
+ <Reference Include="M3D_DLL">
+ <HintPath>C:/Users/Ryan/Documents/419I_Project/Assets/MORPH3D/Scripts/Plugins/M3D_DLL.dll</HintPath>
  </Reference>
  <Reference Include="MCS_Utilities">
  <HintPath>C:/Users/Ryan/Documents/419I_Project/Assets/MORPH3D/Scripts/Plugins/MCS_Utilities.dll</HintPath>
