@@ -8,6 +8,7 @@ public class PlayerControl : MonoBehaviour {
 	float xVel;
 	float zVel;
 	static float Incrementor = 0.05F;
+	public float moveSpeed = 0.1F;
 	bool Attacking;
 	static int attackFrames = 67;
 	int currAttackframes;
@@ -37,7 +38,7 @@ public class PlayerControl : MonoBehaviour {
 
 		if(Input.GetKey("w"))
 		{
-			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x,this.gameObject.transform.position.y,this.gameObject.transform.position.z+0.1F);
+			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x,this.gameObject.transform.position.y,this.gameObject.transform.position.z+moveSpeed);
 			zVel += Incrementor;
 			if (zVel >= 1)
 				zVel = 1;
@@ -53,7 +54,7 @@ public class PlayerControl : MonoBehaviour {
 		}
 		if(Input.GetKey("a"))
 		{
-			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x-0.1F,this.gameObject.transform.position.y,this.gameObject.transform.position.z);
+			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x-moveSpeed,this.gameObject.transform.position.y,this.gameObject.transform.position.z);
 			xVel -= Incrementor;
 			if (xVel <= -1)
 				xVel = -1;
@@ -69,7 +70,7 @@ public class PlayerControl : MonoBehaviour {
 		}
 		if(Input.GetKey("s"))
 		{
-			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x,this.gameObject.transform.position.y,this.gameObject.transform.position.z-0.1F);
+			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x,this.gameObject.transform.position.y,this.gameObject.transform.position.z-moveSpeed);
 			zVel -= Incrementor;
 			if (zVel <= -1)
 				zVel = -1;
@@ -86,7 +87,7 @@ public class PlayerControl : MonoBehaviour {
 		}
 		if(Input.GetKey("d"))
 		{
-			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x+0.1F,this.gameObject.transform.position.y,this.gameObject.transform.position.z);
+			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x+moveSpeed,this.gameObject.transform.position.y,this.gameObject.transform.position.z);
 			xVel += Incrementor;
 			if (xVel >= 1)
 				xVel = 1;
