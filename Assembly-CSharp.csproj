@@ -95,7 +95,10 @@
      <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\Weapon.cs" />
+     <Compile Include="Assets\Scripts\enemy.cs" />
      <Compile Include="Assets\Scripts\mapBorders.cs" />
+     <Compile Include="Assets\Scripts\playerAttack.cs" />
+     <Compile Include="Assets\Scripts\playerStats.cs" />
      <Compile Include="Assets\Scripts\testController.cs" />
      <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

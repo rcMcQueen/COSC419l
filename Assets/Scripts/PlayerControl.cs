@@ -10,8 +10,9 @@ public class PlayerControl : MonoBehaviour {
 	static float Incrementor = 0.05F;
 	public float moveSpeed = 0.1F;
 	bool Attacking;
-	static int attackFrames = 67;
+	static int attackFrames = 27;
 	int currAttackframes;
+	public GameObject attackHitBox;
 
 	// Use this for initialization
 	void Start () {
@@ -28,9 +29,9 @@ public class PlayerControl : MonoBehaviour {
 			if(currAttackframes >= attackFrames)
 			{
 				currAttackframes = 0;
-				Debug.Log("stopped Attack Anim");
 				Attacking = false;
 				anim.SetBool ("attack", false);
+				attackHitBox.SetActive (false);
 			}
 			return;
 		}
@@ -114,9 +115,9 @@ public class PlayerControl : MonoBehaviour {
 
 		if(Input.GetMouseButtonDown(0))//left click
 		{
-			Debug.Log ("attacking animation triggered");
 			if(!Attacking)
 			{
+				attackHitBox.SetActive (true);
 				Attacking = true;
 				anim.SetBool("attack",true);
 			}

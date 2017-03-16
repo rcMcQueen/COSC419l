@@ -1,15 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\mapBorders.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\enemy.cs">
     <Files>
       <File FileName="Assets\Scripts\Item.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Inventory.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ConsumableItem.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Weapon.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Armor.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\testController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerControl.cs" Line="84" Column="54" />
+      <File FileName="Assets\Scripts\PlayerControl.cs" Line="32" Column="19" />
       <File FileName="Assets\Scripts\mapBorders.cs" Line="23" Column="123" />
+      <File FileName="Assets\Scripts\playerAttack.cs" Line="23" Column="71" />
+      <File FileName="Assets\Scripts\playerStats.cs" Line="30" Column="17" />
+      <File FileName="Assets\Scripts\enemy.cs" Line="12" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
