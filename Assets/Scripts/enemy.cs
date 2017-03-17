@@ -13,7 +13,11 @@ public class enemy : MonoBehaviour {
 
 	bool trackingPlayer;
 	bool stopMoving;
+	bool attacked;
 	Transform tempPos;
+
+	public Animation anim;
+	public Animation[] clips;
 
 
 	// Use this for initialization
@@ -23,16 +27,35 @@ public class enemy : MonoBehaviour {
 		defense = 0;
 		stopMoving = false;
 		trackingPlayer = false;
+		attacked = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if(attacked)
+		{
+			if (!anim.isPlaying)
+				attacked = false;
+		}
 		if (trackingPlayer && !stopMoving)
+		{
+			anim.clip = clips[5].GetClip("run");
+			anim.Play ();
 			GetComponent<NavMeshAgent>().destination = player.transform.position;
+		}
 		else if (trackingPlayer && stopMoving)
 		{
 			this.gameObject.transform.position = tempPos.position;
 			GetComponent<NavMeshAgent> ().Warp (tempPos.position);
+			if(anim.clip == clips[5].GetClip("run"))
+			{
+				anim.Stop();
+			}
+			if(!attacked)
+			{
+				anim.clip = clips[0].GetClip("attack01");
+				anim.Play ();
+			}
 		}
 	}
 
@@ -40,6 +63,10 @@ public class enemy : MonoBehaviour {
 	{
 		Debug.Log ("enemy dmg taken, HP: " + hp);
 		hp = hp -(dmg - defense);
+		anim.Stop ();
+		anim.clip = clips[2].GetClip("damage");
+		anim.Play ();
+		attacked = true;
 		if(hp <= 0)//TODO do better death stuff
 		{
 			Debug.Log ("Enemy dead");

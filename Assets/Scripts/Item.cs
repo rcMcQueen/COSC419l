@@ -7,7 +7,7 @@ using UnityEngine;
  */
 public class Item : MonoBehaviour {
 
-	int ID;
+	 int ID;
 	Sprite icon;
 	public int ammoType;//0 = not ammo
 

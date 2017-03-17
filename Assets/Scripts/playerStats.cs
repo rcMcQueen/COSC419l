@@ -11,6 +11,10 @@ public class playerStats : MonoBehaviour {
 	int water;
 	//TODO add other stuff like status effects when relevant
 
+	public GameObject canvas;
+	public Weapon[] weapons = new Weapon[2];
+	public Armor[] armor = new Armor[4]; //0 = helmet, 1 = body, 2 = legs, 3 = boots
+
 	// Use this for initialization
 	void Start () {
 		attack = 5;

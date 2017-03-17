@@ -6,15 +6,19 @@ using System;
 
 public class Inventory : MonoBehaviour
 {
-	Item[] slots;
+	public GameObject[] slots;
+	public bool isOpen;
+	public GameObject canvas;
+	public Item[] itemSlots;
 	int[] slotAmnts;
-	private static int numSlots = 30;//TODO temp value
+	public int numSlots = 24;
 	private static int maxAmnt = 99;// max amount of item that can be in a single slot
 
 	// Use this for initialization
 	void Start ()
 	{
-		slots = new Item[numSlots];
+		isOpen = false;
+		itemSlots = new Item[numSlots];
 		slotAmnts = new int[numSlots];
 		DontDestroyOnLoad (this.gameObject);//stops inventory from being destroyed between scenes
 	}
@@ -31,7 +35,7 @@ public class Inventory : MonoBehaviour
 		slotAmnts [index]--;
 		if(slotAmnts[index] <= 0)//run out of ammo, remove from inventory
 		{
-			slots [index] = null;
+			itemSlots [index] = null;
 			slotAmnts [index] = 0;
 			return false;
 		}
@@ -42,8 +46,8 @@ public class Inventory : MonoBehaviour
 	{
 		for(int x = 0;x<numSlots;x++)
 		{
-			if (slots [x].ammoType == ammoType)
-				return slots [x];
+			if (itemSlots [x].ammoType == ammoType)
+				return itemSlots [x];
 		}
 		return null;
 	}
