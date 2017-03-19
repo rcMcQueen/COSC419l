@@ -6,7 +6,11 @@ public class crate : MonoBehaviour {
 
 	bool beenOpened=false;
 	int lootLevel;
-	Item[] loot;
+	public Item[] loot;
+	public int[] amount;
+	public GameObject openText;
+	public controller controller;
+	public Inventory lootInventory;
 
 	// Use this for initialization
 	void Start () {
@@ -22,15 +26,34 @@ public class crate : MonoBehaviour {
 	{
 		if(other.tag == "Player")
 		{
-			//TODO have popup with icon to show player button to press to open
+			openText.SetActive (true);
 		}
+		controller.inLootRange = true;
+		for(int x = 0;x<loot.Length;x++)
+		{
+			lootInventory.itemSlots [x] = loot [x];
+			lootInventory.slotAmnts [x] = amount [x];
+			loot [x] = null;
+			amount [x] = 0;
+		}
+		controller.lootUpdate ();
+
 	}
 	void OnTriggerExit(Collider other)
 	{
 		if(other.tag == "Player")
 		{
-			//TODO remove popup when player leaves
+			openText.SetActive (false);
 		}
+		controller.inLootRange = false;
+		for(int x = 0;x<lootInventory.itemSlots.Length;x++)
+		{
+			loot [x] = lootInventory.itemSlots [x];
+			amount [x] = lootInventory.slotAmnts [x];
+			lootInventory.itemSlots [x] = null;
+			lootInventory.slotAmnts [x] = 0;
+		}
+		controller.lootUpdate ();
 	}
 
 }

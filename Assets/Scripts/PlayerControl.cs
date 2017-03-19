@@ -122,5 +122,13 @@ public class PlayerControl : MonoBehaviour {
 				anim.SetBool("attack",true);
 			}
 		}
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			this.gameObject.transform.Translate (Vector3.up * Time.deltaTime * 50);
+		}
+
+		if (Input.GetKeyUp(KeyCode.Space)) {
+			this.gameObject.transform.Translate(Vector3.down * Time.deltaTime*50);
+
+		}
 	}
 }

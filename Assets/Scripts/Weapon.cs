@@ -11,7 +11,6 @@ public class Weapon : Item
 	int atkType;//0=straight line, 1 = cone
 	public int equipType;//0=main hand, 1=off-hand,2=2-handed, 3 = 1-handed, used to equip mostly
 	Item ammo;//points to ammo used in inventory to reduce when fired, null if melee
-	int ammoType; //TODO figure out ammo types and values
 	float atkTimer;
 	Inventory inventory;
 

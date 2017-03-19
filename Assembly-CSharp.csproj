@@ -93,11 +93,13 @@
      <Compile Include="Assets\Scripts\FollowCamera.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
+     <Compile Include="Assets\Scripts\MoveCamera.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Scripts\controller.cs" />
      <Compile Include="Assets\Scripts\crate.cs" />
      <Compile Include="Assets\Scripts\enemy.cs" />
+     <Compile Include="Assets\Scripts\lookAtCam.cs" />
      <Compile Include="Assets\Scripts\mapBorders.cs" />
      <Compile Include="Assets\Scripts\playerAttack.cs" />
      <Compile Include="Assets\Scripts\playerStats.cs" />

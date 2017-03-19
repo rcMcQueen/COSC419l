@@ -345,9 +345,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 42411869}
   amountText: {fileID: 1929023243}
+  amount: 0
   idNum: 20
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &13753033
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +666,10 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 08b3b6eb21036fb4194cafd599e74c50, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 08b3b6eb21036fb4194cafd599e74c50, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 08b3b6eb21036fb4194cafd599e74c50, type: 3}
@@ -681,6 +690,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &22293716 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 08b3b6eb21036fb4194cafd599e74c50, type: 3}
+  m_PrefabInternal: {fileID: 22293711}
+--- !u!114 &22293717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 22293712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24501b77118d2e14fba5661446032cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loot:
+  - {fileID: 114919320749545554, guid: 6bf085ab6745eaf489b644b9053f7d40, type: 2}
+  amount: 01000000
+  openText: {fileID: 2106376495}
+  controller: {fileID: 1931796355}
+  lootInventory: {fileID: 2127000195}
 --- !u!208 &22293720
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -1558,9 +1588,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 557327841}
   amountText: {fileID: 1834952240}
+  amount: 0
   idNum: 15
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1001 &40830111
 Prefab:
   m_ObjectHideFlags: 0
@@ -1899,15 +1934,15 @@ Prefab:
     - target: {fileID: 13700000, guid: 720386a977c78cd4a825e5e88bbb1095, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1427101771}
+      objectReference: {fileID: 1904591773}
     - target: {fileID: 13700000, guid: 720386a977c78cd4a825e5e88bbb1095, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 1187405529}
+      objectReference: {fileID: 285086612}
     - target: {fileID: 13700000, guid: 720386a977c78cd4a825e5e88bbb1095, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 843844408}
+      objectReference: {fileID: 370696807}
     - target: {fileID: 11400020, guid: 720386a977c78cd4a825e5e88bbb1095, type: 3}
       propertyPath: _contentPackModel._availableContentPacks.Array.data[0].name
       value: EWArmBracers Left
@@ -2326,9 +2361,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 123388963}
   amountText: {fileID: 2115027866}
+  amount: 0
   idNum: 1
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &50318818
 GameObject:
   m_ObjectHideFlags: 0
@@ -2727,6 +2767,7 @@ GameObject:
   - component: {fileID: 56837176}
   - component: {fileID: 56837178}
   - component: {fileID: 56837177}
+  - component: {fileID: 56837179}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -2785,6 +2826,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 56837175}
+--- !u!225 &56837179
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 56837175}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &58940414
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,9 +3528,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1583596408}
   amountText: {fileID: 1948626007}
+  amount: 0
   idNum: 4
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1534514115}
+  isChar: 1
+  player: {fileID: 0}
+  gearPos: {fileID: 1766655340}
+  isLoot: 0
 --- !u!4 &87202381 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400238, guid: 720386a977c78cd4a825e5e88bbb1095, type: 3}
@@ -6961,9 +7018,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 489349185}
   amountText: {fileID: 772830179}
+  amount: 0
   idNum: 5
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!4 &212484662 stripped
 Transform:
   m_PrefabParentObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 2}
@@ -8580,6 +8642,7 @@ GameObject:
   - component: {fileID: 256252759}
   - component: {fileID: 256252761}
   - component: {fileID: 256252760}
+  - component: {fileID: 256252762}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -8644,6 +8707,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 256252758}
+--- !u!225 &256252762
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 256252758}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!4 &256583517 stripped
 Transform:
   m_PrefabParentObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 2}
@@ -9635,6 +9709,162 @@ Transform:
   m_Father: {fileID: 880017702}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &285086612
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Body_LOD0
+  m_Shader: {fileID: 4800000, guid: b5f9959f7b6042c4eac31c2b58eb6cc2, type: 3}
+  m_ShaderKeywords: _ALPHATEST_ON _DETAIL_MULX2 _NORMALMAP _SPECGLOSSMAP
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _AlphaTex
+      second:
+        m_Texture: {fileID: 2055384979}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _BumpMap
+      second:
+        m_Texture: {fileID: 2800000, guid: 45338ebc0d88b4ad2b70a690df0522f4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailAlbedoMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailMask
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailNormalMap
+      second:
+        m_Texture: {fileID: 2800000, guid: 0ff56e8ce28af470895f06e8788f4eef, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _EmissionMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: d9dd1b4c185db4a6a85a7ee3730bd746, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _OcclusionMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _Overlay
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _ParallaxMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _SpecGlossMap
+      second:
+        m_Texture: {fileID: 2800000, guid: c705a62df1cf14ccd947a71e99faac34, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _BumpScale
+      second: 1
+    - first:
+        name: _CullMode
+      second: 2
+    - first:
+        name: _Cutoff
+      second: 0.5
+    - first:
+        name: _DetailNormalMapScale
+      second: 1
+    - first:
+        name: _DstBlend
+      second: 0
+    - first:
+        name: _EmissionScaleUI
+      second: 0
+    - first:
+        name: _Glossiness
+      second: 0.5
+    - first:
+        name: _Mode
+      second: 1
+    - first:
+        name: _OcclusionStrength
+      second: 1
+    - first:
+        name: _Parallax
+      second: 0.02
+    - first:
+        name: _PlaneReflectionBumpClamp
+      second: 0.05
+    - first:
+        name: _PlaneReflectionBumpScale
+      second: 0.4
+    - first:
+        name: _SmoothnessInAlbedo
+      second: 0
+    - first:
+        name: _SmoothnessTweak1
+      second: 1
+    - first:
+        name: _SmoothnessTweak2
+      second: 0
+    - first:
+        name: _SrcBlend
+      second: 1
+    - first:
+        name: _UVSec
+      second: 0
+    - first:
+        name: _ZWrite
+      second: 1
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _EmissionColor
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _EmissionColorUI
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _OverlayColor
+      second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _SpecColor
+      second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - first:
+        name: _SpecularMapColorTweak
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &285280527
 GameObject:
   m_ObjectHideFlags: 0
@@ -11839,6 +12069,7 @@ GameObject:
   - component: {fileID: 359441312}
   - component: {fileID: 359441314}
   - component: {fileID: 359441313}
+  - component: {fileID: 359441315}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -11857,12 +12088,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1561144167}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 400, y: -275}
-  m_SizeDelta: {x: 500, y: 500}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -343, y: 277}
+  m_SizeDelta: {x: 165, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &359441313
 MonoBehaviour:
@@ -11903,6 +12134,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359441311}
+--- !u!225 &359441315
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 359441311}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &360124378
 GameObject:
   m_ObjectHideFlags: 0
@@ -12237,9 +12479,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1484723785}
   amountText: {fileID: 562734943}
+  amount: 0
   idNum: 6
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &370318300
 GameObject:
   m_ObjectHideFlags: 0
@@ -12298,6 +12545,162 @@ Transform:
   m_Father: {fileID: 1786951317}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &370696807
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Head_LOD0
+  m_Shader: {fileID: 4800000, guid: b5f9959f7b6042c4eac31c2b58eb6cc2, type: 3}
+  m_ShaderKeywords: _ALPHATEST_ON _DETAIL_MULX2 _NORMALMAP _SPECGLOSSMAP
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _AlphaTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _BumpMap
+      second:
+        m_Texture: {fileID: 2800000, guid: b0dd1a37592d54f8798ffa4ec34490b5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailAlbedoMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailMask
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailNormalMap
+      second:
+        m_Texture: {fileID: 2800000, guid: aac78f72298ebf7479cb1b1f74373869, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _EmissionMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: bf5ef63f47372324da3a86bd5660ae00, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _OcclusionMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _Overlay
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _ParallaxMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _SpecGlossMap
+      second:
+        m_Texture: {fileID: 2800000, guid: bb84d079d1be44e309a1aaad74bcf4cf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _BumpScale
+      second: 1
+    - first:
+        name: _CullMode
+      second: 2
+    - first:
+        name: _Cutoff
+      second: 0.5
+    - first:
+        name: _DetailNormalMapScale
+      second: 1
+    - first:
+        name: _DstBlend
+      second: 0
+    - first:
+        name: _EmissionScaleUI
+      second: 0
+    - first:
+        name: _Glossiness
+      second: 0.5
+    - first:
+        name: _Mode
+      second: 1
+    - first:
+        name: _OcclusionStrength
+      second: 1
+    - first:
+        name: _Parallax
+      second: 0.02
+    - first:
+        name: _PlaneReflectionBumpClamp
+      second: 0.05
+    - first:
+        name: _PlaneReflectionBumpScale
+      second: 0.4
+    - first:
+        name: _SmoothnessInAlbedo
+      second: 0
+    - first:
+        name: _SmoothnessTweak1
+      second: 1
+    - first:
+        name: _SmoothnessTweak2
+      second: 0
+    - first:
+        name: _SrcBlend
+      second: 1
+    - first:
+        name: _UVSec
+      second: 0
+    - first:
+        name: _ZWrite
+      second: 1
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _EmissionColor
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _EmissionColorUI
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _OverlayColor
+      second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _SpecColor
+      second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - first:
+        name: _SpecularMapColorTweak
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &371736320
 Prefab:
   m_ObjectHideFlags: 0
@@ -12579,9 +12982,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1268849537}
   amountText: {fileID: 810241431}
+  amount: 0
   idNum: 13
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1 &377606296
 GameObject:
   m_ObjectHideFlags: 0
@@ -15156,72 +15564,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 2}
   m_PrefabInternal: {fileID: 1931120756}
---- !u!1001 &424062284
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 636682211}
-    m_Modifications:
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.858
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.864
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.148
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.6977538
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7163377
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.000000029802315
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.00000029709184
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.000015258789
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -91.50598
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-  m_IsPrefabParent: 0
 --- !u!4 &427257866 stripped
 Transform:
   m_PrefabParentObject: {fileID: 429508, guid: 9c74caa742791864f9c678287121e6c9, type: 2}
@@ -15917,9 +16259,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1440437290}
   amountText: {fileID: 1066835173}
+  amount: 0
   idNum: 12
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1 &444662365
 GameObject:
   m_ObjectHideFlags: 0
@@ -17901,9 +18248,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1117531395}
   amountText: {fileID: 1080376485}
+  amount: 0
   idNum: 19
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &463564858
 GameObject:
   m_ObjectHideFlags: 0
@@ -18602,9 +18954,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1819489270}
   amountText: {fileID: 374631368}
+  amount: 0
   idNum: 14
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &481702043
 GameObject:
   m_ObjectHideFlags: 0
@@ -20054,6 +20411,7 @@ GameObject:
   - component: {fileID: 524767155}
   - component: {fileID: 524767157}
   - component: {fileID: 524767156}
+  - component: {fileID: 524767158}
   m_Layer: 5
   m_Name: TextBackground
   m_TagString: Untagged
@@ -20112,6 +20470,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 524767154}
+--- !u!225 &524767158
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 524767154}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &525761173
 GameObject:
   m_ObjectHideFlags: 0
@@ -20162,7 +20531,7 @@ RectTransform:
   - {fileID: 49363979}
   - {fileID: 1381695126}
   m_Father: {fileID: 1561144167}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -23430,9 +23799,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 72355439}
   amountText: {fileID: 1169043732}
+  amount: 0
   idNum: 2
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1 &620158909
 GameObject:
   m_ObjectHideFlags: 0
@@ -30236,9 +30610,9 @@ RectTransform:
   m_Father: {fileID: 948784225}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 319}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &651508645 stripped
@@ -30557,9 +30931,9 @@ RectTransform:
   m_Father: {fileID: 1852014918}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 159, y: 8}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -400, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &659792699 stripped
@@ -33048,9 +33422,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 812894482}
   amountText: {fileID: 612153447}
+  amount: 0
   idNum: 5
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1 &710170533
 GameObject:
   m_ObjectHideFlags: 0
@@ -33313,9 +33692,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 2003863707}
   amountText: {fileID: 742422216}
+  amount: 0
   idNum: 10
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &716391207
 GameObject:
   m_ObjectHideFlags: 0
@@ -34115,9 +34499,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1208440472}
   amountText: {fileID: 1182378134}
+  amount: 0
   idNum: 0
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1534514115}
+  isChar: 1
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1001 &745678848
 Prefab:
   m_ObjectHideFlags: 0
@@ -34695,9 +35084,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1173641580}
   amountText: {fileID: 1105682114}
+  amount: 0
   idNum: 14
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1 &754951088
 GameObject:
   m_ObjectHideFlags: 0
@@ -35233,9 +35627,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1854701550}
   amountText: {fileID: 88381353}
+  amount: 0
   idNum: 9
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &767849845
 GameObject:
   m_ObjectHideFlags: 0
@@ -35378,9 +35777,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 396034124}
   amountText: {fileID: 462620902}
+  amount: 0
   idNum: 4
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &771231251
 GameObject:
   m_ObjectHideFlags: 0
@@ -38660,9 +39064,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 771231253}
   amountText: {fileID: 97785046}
+  amount: 0
   idNum: 6
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1 &821871943
 GameObject:
   m_ObjectHideFlags: 0
@@ -39533,162 +39942,6 @@ Transform:
   m_Father: {fileID: 777279353}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &843844408
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Head_LOD0
-  m_Shader: {fileID: 4800000, guid: b5f9959f7b6042c4eac31c2b58eb6cc2, type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON _DETAIL_MULX2 _NORMALMAP _SPECGLOSSMAP
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: 2450
-  stringTagMap:
-    RenderType: TransparentCutout
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _AlphaTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _BumpMap
-      second:
-        m_Texture: {fileID: 2800000, guid: b0dd1a37592d54f8798ffa4ec34490b5, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DetailAlbedoMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DetailMask
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DetailNormalMap
-      second:
-        m_Texture: {fileID: 2800000, guid: aac78f72298ebf7479cb1b1f74373869, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _EmissionMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 2800000, guid: bf5ef63f47372324da3a86bd5660ae00, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _OcclusionMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _Overlay
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _ParallaxMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _SpecGlossMap
-      second:
-        m_Texture: {fileID: 2800000, guid: bb84d079d1be44e309a1aaad74bcf4cf, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: _BumpScale
-      second: 1
-    - first:
-        name: _CullMode
-      second: 2
-    - first:
-        name: _Cutoff
-      second: 0.5
-    - first:
-        name: _DetailNormalMapScale
-      second: 1
-    - first:
-        name: _DstBlend
-      second: 0
-    - first:
-        name: _EmissionScaleUI
-      second: 0
-    - first:
-        name: _Glossiness
-      second: 0.5
-    - first:
-        name: _Mode
-      second: 1
-    - first:
-        name: _OcclusionStrength
-      second: 1
-    - first:
-        name: _Parallax
-      second: 0.02
-    - first:
-        name: _PlaneReflectionBumpClamp
-      second: 0.05
-    - first:
-        name: _PlaneReflectionBumpScale
-      second: 0.4
-    - first:
-        name: _SmoothnessInAlbedo
-      second: 0
-    - first:
-        name: _SmoothnessTweak1
-      second: 1
-    - first:
-        name: _SmoothnessTweak2
-      second: 0
-    - first:
-        name: _SrcBlend
-      second: 1
-    - first:
-        name: _UVSec
-      second: 0
-    - first:
-        name: _ZWrite
-      second: 1
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _EmissionColor
-      second: {r: 0, g: 0, b: 0, a: 1}
-    - first:
-        name: _EmissionColorUI
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _OverlayColor
-      second: {r: 0, g: 0, b: 0, a: 0}
-    - first:
-        name: _SpecColor
-      second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - first:
-        name: _SpecularMapColorTweak
-      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &844518625
 GameObject:
   m_ObjectHideFlags: 0
@@ -39739,9 +39992,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 995598409}
   amountText: {fileID: 645230318}
+  amount: 0
   idNum: 21
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &846301712
 GameObject:
   m_ObjectHideFlags: 0
@@ -40002,6 +40260,7 @@ GameObject:
   - component: {fileID: 854534072}
   - component: {fileID: 854534074}
   - component: {fileID: 854534073}
+  - component: {fileID: 854534075}
   m_Layer: 5
   m_Name: TextBackground
   m_TagString: Untagged
@@ -40060,6 +40319,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 854534071}
+--- !u!225 &854534075
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 854534071}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &855339712
 GameObject:
   m_ObjectHideFlags: 0
@@ -42152,9 +42422,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1851135910}
   amountText: {fileID: 1923127245}
+  amount: 0
   idNum: 18
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &907664262
 GameObject:
   m_ObjectHideFlags: 0
@@ -42898,9 +43173,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 922972012}
   amountText: {fileID: 1062821451}
+  amount: 0
   idNum: 22
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &930276456
 GameObject:
   m_ObjectHideFlags: 0
@@ -43355,28 +43635,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 2}
   m_PrefabInternal: {fileID: 743603877}
---- !u!84 &948630619
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 512
-  m_Height: 512
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapMode: 0
 --- !u!1 &948784221
 GameObject:
   m_ObjectHideFlags: 0
@@ -43394,7 +43652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &948784222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43935,9 +44193,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1715748673}
   amountText: {fileID: 1541449671}
+  amount: 0
   idNum: 3
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1534514115}
+  isChar: 1
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &974528460
 GameObject:
   m_ObjectHideFlags: 0
@@ -44520,6 +44783,7 @@ GameObject:
   - component: {fileID: 1004071425}
   - component: {fileID: 1004071427}
   - component: {fileID: 1004071426}
+  - component: {fileID: 1004071428}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -44540,9 +44804,9 @@ RectTransform:
   m_Father: {fileID: 1852014918}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 487, y: 65}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -85, y: 65}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004071426
@@ -44584,6 +44848,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1004071424}
+--- !u!225 &1004071428
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1004071424}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!4 &1004162919 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400254, guid: 720386a977c78cd4a825e5e88bbb1095, type: 3}
@@ -45976,6 +46251,7 @@ GameObject:
   - component: {fileID: 1029797959}
   - component: {fileID: 1029797961}
   - component: {fileID: 1029797960}
+  - component: {fileID: 1029797962}
   m_Layer: 5
   m_Name: Text (2)
   m_TagString: Untagged
@@ -45996,9 +46272,9 @@ RectTransform:
   m_Father: {fileID: 1852014918}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 379, y: 83}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -193, y: 83}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1029797960
@@ -46040,6 +46316,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1029797958}
+--- !u!225 &1029797962
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1029797958}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1030826882
 GameObject:
   m_ObjectHideFlags: 0
@@ -46651,9 +46938,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 169077835}
   amountText: {fileID: 239404051}
+  amount: 0
   idNum: 3
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &1037117148
 GameObject:
   m_ObjectHideFlags: 0
@@ -51928,9 +52220,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 21008851}
   amountText: {fileID: 1062834523}
+  amount: 0
   idNum: 12
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &1185762936
 GameObject:
   m_ObjectHideFlags: 0
@@ -51959,162 +52256,6 @@ Transform:
   m_Father: {fileID: 106209312}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1187405529
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Body_LOD0
-  m_Shader: {fileID: 4800000, guid: b5f9959f7b6042c4eac31c2b58eb6cc2, type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON _DETAIL_MULX2 _NORMALMAP _SPECGLOSSMAP
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: 2450
-  stringTagMap:
-    RenderType: TransparentCutout
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _AlphaTex
-      second:
-        m_Texture: {fileID: 948630619}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _BumpMap
-      second:
-        m_Texture: {fileID: 2800000, guid: 45338ebc0d88b4ad2b70a690df0522f4, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DetailAlbedoMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DetailMask
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DetailNormalMap
-      second:
-        m_Texture: {fileID: 2800000, guid: 0ff56e8ce28af470895f06e8788f4eef, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _EmissionMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 2800000, guid: d9dd1b4c185db4a6a85a7ee3730bd746, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _OcclusionMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _Overlay
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _ParallaxMap
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _SpecGlossMap
-      second:
-        m_Texture: {fileID: 2800000, guid: c705a62df1cf14ccd947a71e99faac34, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: _BumpScale
-      second: 1
-    - first:
-        name: _CullMode
-      second: 2
-    - first:
-        name: _Cutoff
-      second: 0.5
-    - first:
-        name: _DetailNormalMapScale
-      second: 1
-    - first:
-        name: _DstBlend
-      second: 0
-    - first:
-        name: _EmissionScaleUI
-      second: 0
-    - first:
-        name: _Glossiness
-      second: 0.5
-    - first:
-        name: _Mode
-      second: 1
-    - first:
-        name: _OcclusionStrength
-      second: 1
-    - first:
-        name: _Parallax
-      second: 0.02
-    - first:
-        name: _PlaneReflectionBumpClamp
-      second: 0.05
-    - first:
-        name: _PlaneReflectionBumpScale
-      second: 0.4
-    - first:
-        name: _SmoothnessInAlbedo
-      second: 0
-    - first:
-        name: _SmoothnessTweak1
-      second: 1
-    - first:
-        name: _SmoothnessTweak2
-      second: 0
-    - first:
-        name: _SrcBlend
-      second: 1
-    - first:
-        name: _UVSec
-      second: 0
-    - first:
-        name: _ZWrite
-      second: 1
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _EmissionColor
-      second: {r: 0, g: 0, b: 0, a: 1}
-    - first:
-        name: _EmissionColorUI
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _OverlayColor
-      second: {r: 0, g: 0, b: 0, a: 0}
-    - first:
-        name: _SpecColor
-      second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - first:
-        name: _SpecularMapColorTweak
-      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1188575577
 Prefab:
   m_ObjectHideFlags: 0
@@ -53095,9 +53236,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 469913181}
   amountText: {fileID: 1547325147}
+  amount: 0
   idNum: 2
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1534514115}
+  isChar: 1
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &1220791266
 GameObject:
   m_ObjectHideFlags: 0
@@ -53931,6 +54077,7 @@ GameObject:
   - component: {fileID: 1237519340}
   - component: {fileID: 1237519342}
   - component: {fileID: 1237519341}
+  - component: {fileID: 1237519343}
   m_Layer: 5
   m_Name: Text (1)
   m_TagString: Untagged
@@ -53951,9 +54098,9 @@ RectTransform:
   m_Father: {fileID: 1852014918}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 379, y: 133}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -193, y: 133}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1237519341
@@ -53995,6 +54142,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1237519339}
+--- !u!225 &1237519343
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1237519339}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1238798019
 Prefab:
   m_ObjectHideFlags: 0
@@ -54889,9 +55047,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 545349036}
   amountText: {fileID: 1744518063}
+  amount: 0
   idNum: 5
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1534514115}
+  isChar: 1
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &1245658761
 GameObject:
   m_ObjectHideFlags: 0
@@ -57598,9 +57761,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1958927235}
   amountText: {fileID: 1956348901}
+  amount: 0
   idNum: 7
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1 &1334485476
 GameObject:
   m_ObjectHideFlags: 0
@@ -58825,7 +58993,7 @@ RectTransform:
   m_GameObject: {fileID: 1361438475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 0.75}
   m_Children: []
   m_Father: {fileID: 1405772057}
   m_RootOrder: 0
@@ -58855,7 +59023,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1361438475}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -59957,9 +60125,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 360743115}
   amountText: {fileID: 511342368}
+  amount: 0
   idNum: 9
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1 &1376639094
 GameObject:
   m_ObjectHideFlags: 0
@@ -60328,9 +60501,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1695909379}
   amountText: {fileID: 1605269769}
+  amount: 0
   idNum: 0
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &1382177183
 GameObject:
   m_ObjectHideFlags: 0
@@ -60848,6 +61026,7 @@ GameObject:
   - component: {fileID: 1405772056}
   - component: {fileID: 1405772055}
   - component: {fileID: 1405772054}
+  - component: {fileID: 1405772058}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -60882,7 +61061,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -60930,6 +61109,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &1405772058
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1405772053}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1405779105
 GameObject:
   m_ObjectHideFlags: 0
@@ -61609,35 +61799,6 @@ Transform:
   m_Father: {fileID: 2064390647}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1427101771
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: EyeAndLash
-  m_Shader: {fileID: 4800000, guid: d545c46e658620143abf0bf746b90a19, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 2800000, guid: 50988ebd9d699964b8d31d8f1ea0e21c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: _Spread
-      second: 64
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1427364848
 GameObject:
   m_ObjectHideFlags: 0
@@ -61648,6 +61809,7 @@ GameObject:
   - component: {fileID: 1427364849}
   - component: {fileID: 1427364851}
   - component: {fileID: 1427364850}
+  - component: {fileID: 1427364852}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -61668,9 +61830,9 @@ RectTransform:
   m_Father: {fileID: 1852014918}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -121, y: 454}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -121, y: 135}
   m_SizeDelta: {x: 700, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1427364850
@@ -61706,6 +61868,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1427364848}
+--- !u!225 &1427364852
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1427364848}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1427750514
 GameObject:
   m_ObjectHideFlags: 0
@@ -61756,9 +61929,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1570592465}
   amountText: {fileID: 2026539806}
+  amount: 0
   idNum: 3
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1001 &1431317497
 Prefab:
   m_ObjectHideFlags: 0
@@ -62429,9 +62607,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1133627804}
   amountText: {fileID: 236885107}
+  amount: 0
   idNum: 10
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1 &1458224992
 GameObject:
   m_ObjectHideFlags: 0
@@ -64903,9 +65086,15 @@ MonoBehaviour:
   - {fileID: 972778968}
   - {fileID: 2146717159}
   isOpen: 0
-  canvas: {fileID: 1561144163}
-  itemSlots: []
-  numSlots: 6
+  canvas: {fileID: 1852014914}
+  itemSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slotAmnts: 000000000000000000000000000000000000000000000000
 --- !u!4 &1534514116
 Transform:
   m_ObjectHideFlags: 0
@@ -65546,7 +65735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1561144164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65615,8 +65804,8 @@ RectTransform:
   m_Children:
   - {fileID: 854534072}
   - {fileID: 1785230532}
-  - {fileID: 525761174}
   - {fileID: 359441312}
+  - {fileID: 525761174}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65675,9 +65864,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1452750977}
   amountText: {fileID: 2055549905}
+  amount: 0
   idNum: 2
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &1563048524
 GameObject:
   m_ObjectHideFlags: 0
@@ -69045,34 +69239,6 @@ Transform:
   m_Father: {fileID: 738465584}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1686322772 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-  m_PrefabInternal: {fileID: 424062284}
---- !u!4 &1686322773 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
-  m_PrefabInternal: {fileID: 424062284}
---- !u!114 &1686322777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1686322772}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aecccfc1d7050954283835360098ab5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIcon: {fileID: 2800000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
-  canGet: 1
-  itemType: 576561706f6e
-  stackable: 0
-  maxStack: 1
-  stack: 1
-  isEquipment: 1
-  isAlsoWeapon: 1
-  equippedWeaponVersion: {fileID: 1686322773}
 --- !u!1 &1688116205
 GameObject:
   m_ObjectHideFlags: 0
@@ -69990,9 +70156,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1148042904}
   amountText: {fileID: 211402092}
+  amount: 0
   idNum: 8
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &1729078455
 GameObject:
   m_ObjectHideFlags: 0
@@ -72034,9 +72205,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1669053230}
   amountText: {fileID: 827028943}
+  amount: 0
   idNum: 23
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!4 &1771442835 stripped
 Transform:
   m_PrefabParentObject: {fileID: 429508, guid: 9c74caa742791864f9c678287121e6c9, type: 2}
@@ -72103,9 +72279,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 549980711}
   amountText: {fileID: 341477777}
+  amount: 0
   idNum: 1
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!4 &1773672930 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400126, guid: 720386a977c78cd4a825e5e88bbb1095, type: 3}
@@ -72392,6 +72573,7 @@ GameObject:
   - component: {fileID: 1785230532}
   - component: {fileID: 1785230534}
   - component: {fileID: 1785230533}
+  - component: {fileID: 1785230535}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -72450,6 +72632,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1785230531}
+--- !u!225 &1785230535
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1785230531}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1786081467
 Prefab:
   m_ObjectHideFlags: 0
@@ -73771,9 +73964,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1762534927}
   amountText: {fileID: 895920119}
+  amount: 0
   idNum: 8
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1 &1827170747
 GameObject:
   m_ObjectHideFlags: 0
@@ -74411,7 +74609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1852014915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76001,8 +76199,32 @@ MonoBehaviour:
   - {fileID: 1381695125}
   isOpen: 0
   canvas: {fileID: 1561144163}
-  itemSlots: []
-  numSlots: 24
+  itemSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slotAmnts: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!4 &1903562444
 Transform:
   m_ObjectHideFlags: 0
@@ -76016,6 +76238,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1904591773
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: EyeAndLash
+  m_Shader: {fileID: 4800000, guid: d545c46e658620143abf0bf746b90a19, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 50988ebd9d699964b8d31d8f1ea0e21c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Spread
+      second: 64
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1908469601
 GameObject:
   m_ObjectHideFlags: 0
@@ -77105,9 +77356,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 460325476}
   amountText: {fileID: 1639428195}
+  amount: 0
   idNum: 11
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1 &1923127243
 GameObject:
   m_ObjectHideFlags: 0
@@ -77412,6 +77668,25 @@ MonoBehaviour:
   invCanvas: {fileID: 1561144163}
   lootCanvas: {fileID: 948784221}
   charSheet: {fileID: 1852014914}
+  menusOpen: 000000
+  numMenus: 0
+  inLootRange: 0
+  lootSlots:
+  - {fileID: 1961915514}
+  - {fileID: 1773327343}
+  - {fileID: 619662261}
+  - {fileID: 709192062}
+  - {fileID: 2142268393}
+  - {fileID: 1427750516}
+  - {fileID: 821579351}
+  - {fileID: 1334102707}
+  - {fileID: 1826924128}
+  - {fileID: 1920358709}
+  - {fileID: 1457577023}
+  - {fileID: 1376165341}
+  - {fileID: 443940285}
+  - {fileID: 375578490}
+  - {fileID: 754530437}
 --- !u!1 &1932799476
 GameObject:
   m_ObjectHideFlags: 0
@@ -78569,9 +78844,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 155936222}
   amountText: {fileID: 1226670989}
+  amount: 0
   idNum: 0
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1001 &1961932279
 Prefab:
   m_ObjectHideFlags: 0
@@ -79547,6 +79827,7 @@ GameObject:
   - component: {fileID: 1977960270}
   - component: {fileID: 1977960272}
   - component: {fileID: 1977960271}
+  - component: {fileID: 1977960273}
   m_Layer: 5
   m_Name: Text (3)
   m_TagString: Untagged
@@ -79567,9 +79848,9 @@ RectTransform:
   m_Father: {fileID: 1852014918}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 379, y: 183}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -193, y: 183}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1977960271
@@ -79611,6 +79892,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1977960269}
+--- !u!225 &1977960273
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1977960269}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1979550214
 GameObject:
   m_ObjectHideFlags: 0
@@ -81619,9 +81911,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1051091110}
   amountText: {fileID: 1649350662}
+  amount: 0
   idNum: 7
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1001 &2010942012
 Prefab:
   m_ObjectHideFlags: 0
@@ -81764,9 +82061,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1526845040}
   amountText: {fileID: 900478367}
+  amount: 0
   idNum: 11
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!4 &2019621050 stripped
 Transform:
   m_PrefabParentObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 2}
@@ -82504,9 +82806,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 692112207}
   amountText: {fileID: 72476105}
+  amount: 0
   idNum: 17
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!4 &2035674861 stripped
 Transform:
   m_PrefabParentObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 2}
@@ -82973,6 +83280,28 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 2}
   m_IsPrefabParent: 0
+--- !u!84 &2055384979
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_TextureSettings:
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapMode: 0
 --- !u!1 &2055549903
 GameObject:
   m_ObjectHideFlags: 0
@@ -83716,9 +84045,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1882826204}
   amountText: {fileID: 688739842}
+  amount: 0
   idNum: 13
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &2083976758
 GameObject:
   m_ObjectHideFlags: 0
@@ -83729,6 +84063,7 @@ GameObject:
   - component: {fileID: 2083976759}
   - component: {fileID: 2083976761}
   - component: {fileID: 2083976760}
+  - component: {fileID: 2083976762}
   m_Layer: 5
   m_Name: TextBackground
   m_TagString: Untagged
@@ -83749,9 +84084,9 @@ RectTransform:
   m_Father: {fileID: 1852014918}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -248, y: 584}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -248, y: 265}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2083976760
@@ -83787,6 +84122,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2083976758}
+--- !u!225 &2083976762
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2083976758}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2084465121
 GameObject:
   m_ObjectHideFlags: 0
@@ -84221,6 +84567,100 @@ Transform:
   m_Father: {fileID: 482346806}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2106376495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2106376496}
+  - component: {fileID: 2106376499}
+  - component: {fileID: 2106376498}
+  - component: {fileID: 2106376497}
+  m_Layer: 0
+  m_Name: New Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2106376496
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2106376495}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22293716}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2106376497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2106376495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9f571a0cb820e46b712354aa9320b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!102 &2106376498
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2106376495}
+  m_Text: Press "L" to open me
+  m_OffsetZ: 0
+  m_CharacterSize: 0.5
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &2106376499
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2106376495}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1 &2107618099
 GameObject:
   m_ObjectHideFlags: 0
@@ -84725,9 +85165,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1495599929}
   amountText: {fileID: 667659432}
+  amount: 0
   idNum: 16
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1903562443}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!4 &2122767174 stripped
 Transform:
   m_PrefabParentObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 2}
@@ -84788,6 +85233,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173883454}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2127000194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2127000196}
+  - component: {fileID: 2127000195}
+  m_Layer: 0
+  m_Name: lootInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2127000195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2127000194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232d96a82272c6043b5a828f0d5e1e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots:
+  - {fileID: 1961915512}
+  - {fileID: 1773327341}
+  - {fileID: 619662259}
+  - {fileID: 709192060}
+  - {fileID: 2142268391}
+  - {fileID: 1427750514}
+  - {fileID: 821579349}
+  - {fileID: 1334102705}
+  - {fileID: 1826924126}
+  - {fileID: 1920358707}
+  - {fileID: 1457577021}
+  - {fileID: 1376165339}
+  - {fileID: 443940283}
+  - {fileID: 375578488}
+  - {fileID: 754530435}
+  isOpen: 0
+  canvas: {fileID: 0}
+  itemSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slotAmnts: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!4 &2127000196
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2127000194}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.82, y: 1.57, z: 13.51}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2127522636
 GameObject:
@@ -85072,9 +85592,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1644540210}
   amountText: {fileID: 1312506889}
+  amount: 0
   idNum: 4
   tempitem: {fileID: 1361438475}
-  inventory: {fileID: 0}
+  inventory: {fileID: 2127000195}
+  isChar: 0
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 1
 --- !u!1 &2142396928
 GameObject:
   m_ObjectHideFlags: 0
@@ -85463,9 +85988,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pic: {fileID: 1380842142}
   amountText: {fileID: 1683492123}
+  amount: 0
   idNum: 1
   tempitem: {fileID: 1361438475}
   inventory: {fileID: 1534514115}
+  isChar: 1
+  player: {fileID: 0}
+  gearPos: {fileID: 0}
+  isLoot: 0
 --- !u!1 &2147110835
 GameObject:
   m_ObjectHideFlags: 0

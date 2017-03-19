@@ -9,15 +9,38 @@ public class slot : MonoBehaviour, IPointerClickHandler {
 	public Image pic;
 	public Text amountText;
 	Sprite icon = null;
-	int amount=0;
+	public int amount=0;
 	public int idNum;
 	public GameObject tempitem;
 	public Inventory inventory;
+	public bool isChar = false;
+	public playerStats player;
+	public Transform gearPos;
+	public bool isLoot;
 
 	// Use this for initialization
 	void Start () {
-		if (icon == null)
+		if(inventory == null)
+		{
 			pic.gameObject.SetActive (false);
+			return;
+		}
+
+		if(idNum >= inventory.itemSlots.Length)
+		{
+			pic.gameObject.SetActive (false);
+			return;
+		}
+		if(inventory.itemSlots[idNum] != null)
+		{
+			pic.sprite = inventory.itemSlots [idNum].icon;
+			amount = inventory.slotAmnts [idNum];
+			amountText.text = "" + amount;
+		}
+		else
+		{
+			pic.gameObject.SetActive (false);
+		}
 	}
 	
 	// Update is called once per frame
@@ -40,16 +63,30 @@ public class slot : MonoBehaviour, IPointerClickHandler {
 	{
 		if(inventory.itemSlots[idNum] == null && tempitem.GetComponent<tempItem>().item != null)//have item and put it in empty slot
 		{
+			Debug.Log ("Trying to place item in empty slot");
 			inventory.itemSlots [idNum] = tempitem.GetComponent<tempItem>().item;
 			amount = tempitem.GetComponent<tempItem>().amount;
+			if(!isChar)
+				amountText.text = "" + amount;
 			tempitem.GetComponent<tempItem> ().item = null;
 			tempitem.GetComponent<tempItem> ().amount = 0;
 			pic.sprite = tempitem.GetComponent<Image> ().sprite;
 			tempitem.GetComponent<Image> ().sprite = null;
+			pic.gameObject.SetActive (true);
+			tempitem.GetComponent<Image> ().enabled = false;
+			if(isChar)
+			{
+				GameObject clone = Instantiate (inventory.itemSlots [idNum].gameObject, gearPos.position, Quaternion.identity);
+				clone.transform.parent = gearPos;
+				clone.transform.localEulerAngles = new Vector3 (0, 0, 0);
+				clone.transform.localScale = new Vector3 (0.5F, 0.5F, 0.75F);
+				clone.transform.localPosition = new Vector3 (0, 0, 0);
+			}
 		}
 
 		else if (inventory.itemSlots[idNum] != null && tempitem.GetComponent<tempItem>().item != null)//if holding item and slot has item, switch em
 		{
+			Debug.Log ("trying to switch items");
 			//hold current inventory stuff in temp vars
 			Item temp = inventory.itemSlots [idNum];
 			int tempAmnt = amount;
@@ -57,11 +94,23 @@ public class slot : MonoBehaviour, IPointerClickHandler {
 
 			inventory.itemSlots [idNum] = tempitem.GetComponent<tempItem>().item;
 			amount = tempitem.GetComponent<tempItem>().amount;
+			if(!isChar)
+				amountText.text = "" + amount;
 			pic.sprite = tempitem.GetComponent<Image> ().sprite;
 
 			tempitem.GetComponent<tempItem> ().item = temp;
 			tempitem.GetComponent<tempItem> ().amount = tempAmnt;
 			tempitem.GetComponent<Image> ().sprite = tempSprite;
+
+			if(isChar)
+			{
+				GameObject.Destroy (gearPos.GetChild(0));
+				GameObject clone = Instantiate (inventory.itemSlots [idNum].gameObject, gearPos.position, Quaternion.identity);
+				clone.transform.parent = gearPos;
+				clone.transform.localEulerAngles = new Vector3 (0, 0, 0);
+				clone.transform.localScale = new Vector3 (0.5F, 0.5F, 0.75F);
+				clone.transform.localPosition = new Vector3 (0, 0, 0);
+			}
 		}
 
 		else if (inventory.itemSlots[idNum] != null && tempitem.GetComponent<tempItem>().item == null)//dont have item, take it from slot
@@ -72,7 +121,16 @@ public class slot : MonoBehaviour, IPointerClickHandler {
 
 			inventory.itemSlots [idNum] = null;
 			amount = 0;
+			if(!isChar)
+				amountText.text = "";
 			pic.sprite = null;
+			pic.gameObject.SetActive (false);
+			tempitem.GetComponent<Image> ().enabled = true;
+
+			if(isChar)
+			{
+				GameObject.Destroy (gearPos.GetChild(0).gameObject);
+			}
 		}
 	}
 

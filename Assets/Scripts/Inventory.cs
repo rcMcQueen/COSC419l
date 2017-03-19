@@ -9,17 +9,15 @@ public class Inventory : MonoBehaviour
 	public GameObject[] slots;
 	public bool isOpen;
 	public GameObject canvas;
-	public Item[] itemSlots;
-	int[] slotAmnts;
-	public int numSlots = 24;
+	public static int numSlots = 24;
 	private static int maxAmnt = 99;// max amount of item that can be in a single slot
+	public Item[] itemSlots = new Item[numSlots];
+	public int[] slotAmnts = new int[numSlots];
 
 	// Use this for initialization
 	void Start ()
 	{
 		isOpen = false;
-		itemSlots = new Item[numSlots];
-		slotAmnts = new int[numSlots];
 		DontDestroyOnLoad (this.gameObject);//stops inventory from being destroyed between scenes
 	}
 	

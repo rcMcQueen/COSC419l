@@ -15,9 +15,9 @@ public class tempItem : MonoBehaviour {
 
 	void Update()
 	{
+
 		this.gameObject.transform.position = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 1);
 		if (item == null)
 			icon.enabled = false;
 	}
-
 }
