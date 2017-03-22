@@ -19,6 +19,11 @@ public class enemy : MonoBehaviour {
 	public Animation anim;
 	public Animation[] clips;
 
+	public AudioSource audio;
+	public AudioClip detectSound;
+	public AudioClip dieSound;
+	public AudioClip attackSound;
+
 
 	// Use this for initialization
 	void Start () {
@@ -61,9 +66,12 @@ public class enemy : MonoBehaviour {
 
 	public void dealDmg(int dmg)
 	{
+		audio.clip = dieSound;//since it dies instanly right now, just use it as pain noise
+
+		audio.Play ();
 		Debug.Log ("enemy dmg taken, HP: " + hp);
 		hp = hp -(dmg - defense);
-		anim.Stop ();
+		anim	.Stop ();
 		anim.clip = clips[2].GetClip("damage");
 		anim.Play ();
 		attacked = true;
@@ -78,6 +86,8 @@ public class enemy : MonoBehaviour {
 	{
 		if(other.tag == "Player")
 		{
+			audio.clip = detectSound;
+			audio.Play ();
 			trackingPlayer = true;
 			GetComponent<NavMeshAgent> ().destination = player.transform.position;
 			//resize box collider to just around model

@@ -15,7 +15,7 @@ public class slot : MonoBehaviour, IPointerClickHandler {
 	public Inventory inventory;
 	public bool isChar = false;
 	public playerStats player;
-	public Transform gearPos;
+	public Transform[] gearPos;
 	public bool isLoot;
 
 	// Use this for initialization
@@ -61,11 +61,14 @@ public class slot : MonoBehaviour, IPointerClickHandler {
 
 	public void moveItem()
 	{
+		
 		if(inventory.itemSlots[idNum] == null && tempitem.GetComponent<tempItem>().item != null)//have item and put it in empty slot
 		{
+			inventory.control.playClick ();
 			Debug.Log ("Trying to place item in empty slot");
 			inventory.itemSlots [idNum] = tempitem.GetComponent<tempItem>().item;
 			amount = tempitem.GetComponent<tempItem>().amount;
+			inventory.slotAmnts [idNum] = amount;
 			if(!isChar)
 				amountText.text = "" + amount;
 			tempitem.GetComponent<tempItem> ().item = null;
@@ -76,8 +79,21 @@ public class slot : MonoBehaviour, IPointerClickHandler {
 			tempitem.GetComponent<Image> ().enabled = false;
 			if(isChar)
 			{
-				GameObject clone = Instantiate (inventory.itemSlots [idNum].gameObject, gearPos.position, Quaternion.identity);
-				clone.transform.parent = gearPos;
+				if(inventory.itemSlots [idNum] is Weapon)//update player attack with weapon attack
+				{
+					player.setAttack (player.getAttack() + ((Weapon)inventory.itemSlots [idNum]).atk);
+				}
+				GameObject clone = null;
+				if(idNum == 4)//right hand weapon
+				{
+					clone = Instantiate (inventory.itemSlots [idNum].gameObject, gearPos[0].position, Quaternion.identity);
+					clone.transform.parent = gearPos[0];
+				}
+				else if (idNum == 5) //left hand weapon
+				{
+					clone = Instantiate (inventory.itemSlots [idNum].gameObject, gearPos[1].position, Quaternion.identity);
+					clone.transform.parent = gearPos[1];
+				}
 				clone.transform.localEulerAngles = new Vector3 (0, 0, 0);
 				clone.transform.localScale = new Vector3 (0.5F, 0.5F, 0.75F);
 				clone.transform.localPosition = new Vector3 (0, 0, 0);
@@ -86,6 +102,7 @@ public class slot : MonoBehaviour, IPointerClickHandler {
 
 		else if (inventory.itemSlots[idNum] != null && tempitem.GetComponent<tempItem>().item != null)//if holding item and slot has item, switch em
 		{
+			inventory.control.playClick ();
 			Debug.Log ("trying to switch items");
 			//hold current inventory stuff in temp vars
 			Item temp = inventory.itemSlots [idNum];
@@ -94,6 +111,7 @@ public class slot : MonoBehaviour, IPointerClickHandler {
 
 			inventory.itemSlots [idNum] = tempitem.GetComponent<tempItem>().item;
 			amount = tempitem.GetComponent<tempItem>().amount;
+			inventory.slotAmnts [idNum] = amount;
 			if(!isChar)
 				amountText.text = "" + amount;
 			pic.sprite = tempitem.GetComponent<Image> ().sprite;
@@ -104,9 +122,24 @@ public class slot : MonoBehaviour, IPointerClickHandler {
 
 			if(isChar)
 			{
-				GameObject.Destroy (gearPos.GetChild(0));
-				GameObject clone = Instantiate (inventory.itemSlots [idNum].gameObject, gearPos.position, Quaternion.identity);
-				clone.transform.parent = gearPos;
+				if(inventory.itemSlots [idNum] is Weapon)//update player attack with weapon attack
+				{
+					
+					player.setAttack (player.getAttack() + ((Weapon)inventory.itemSlots [idNum]).atk - ((Weapon)tempitem.GetComponent<tempItem> ().item).atk);
+				}
+				GameObject clone = null;
+				if(idNum == 4)//right hand weapon
+				{
+					GameObject.Destroy (gearPos[0].GetChild(0).gameObject);
+					clone = Instantiate (inventory.itemSlots [idNum].gameObject, gearPos[0].position, Quaternion.identity);
+					clone.transform.parent = gearPos[0];
+				}
+				else if (idNum == 5) //left hand weapon
+				{
+					GameObject.Destroy (gearPos[1].GetChild(0).gameObject);
+					clone = Instantiate (inventory.itemSlots [idNum].gameObject, gearPos[1].position, Quaternion.identity);
+					clone.transform.parent = gearPos[1];
+				}
 				clone.transform.localEulerAngles = new Vector3 (0, 0, 0);
 				clone.transform.localScale = new Vector3 (0.5F, 0.5F, 0.75F);
 				clone.transform.localPosition = new Vector3 (0, 0, 0);
@@ -115,11 +148,13 @@ public class slot : MonoBehaviour, IPointerClickHandler {
 
 		else if (inventory.itemSlots[idNum] != null && tempitem.GetComponent<tempItem>().item == null)//dont have item, take it from slot
 		{
+			inventory.control.playClick ();
 			tempitem.GetComponent<tempItem> ().item = inventory.itemSlots [idNum];
 			tempitem.GetComponent<tempItem> ().amount = amount;
 			tempitem.GetComponent<Image> ().sprite = pic.sprite;
 
 			inventory.itemSlots [idNum] = null;
+			inventory.slotAmnts [idNum] = 0;
 			amount = 0;
 			if(!isChar)
 				amountText.text = "";
@@ -129,7 +164,18 @@ public class slot : MonoBehaviour, IPointerClickHandler {
 
 			if(isChar)
 			{
-				GameObject.Destroy (gearPos.GetChild(0).gameObject);
+				if(tempitem.GetComponent<tempItem>().item is Weapon)//update player attack with weapon attack
+				{
+					player.setAttack (player.getAttack() - ((Weapon)tempitem.GetComponent<tempItem> ().item).atk);
+				}
+				if(idNum == 4)//right hand weapon
+				{
+					GameObject.Destroy (gearPos[0].GetChild(0).gameObject);
+				}
+				else if (idNum == 5) //left hand weapon
+				{
+					GameObject.Destroy (gearPos[1].GetChild(0).gameObject);
+				}
 			}
 		}
 	}

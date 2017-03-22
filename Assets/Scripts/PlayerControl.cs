@@ -13,15 +13,26 @@ public class PlayerControl : MonoBehaviour {
 	static int attackFrames = 27;
 	int currAttackframes;
 	public GameObject attackHitBox;
+	public float rotateSpeed = 0.5F;
+	public AudioSource audio;
+
+	public AudioClip attackClip;
+	public AudioClip moveClip;
+
+	public bool paused = false;
 
 	// Use this for initialization
 	void Start () {
 		Attacking = false;
 		currAttackframes = 0;
+		paused = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (paused)
+			return;
 
 		if(Attacking)
 		{
@@ -39,7 +50,7 @@ public class PlayerControl : MonoBehaviour {
 
 		if(Input.GetKey("w"))
 		{
-			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x,this.gameObject.transform.position.y,this.gameObject.transform.position.z+moveSpeed);
+			this.gameObject.transform.position += transform.forward * Time.deltaTime*moveSpeed;
 			zVel += Incrementor;
 			if (zVel >= 1)
 				zVel = 1;
@@ -55,7 +66,7 @@ public class PlayerControl : MonoBehaviour {
 		}
 		if(Input.GetKey("a"))
 		{
-			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x-moveSpeed,this.gameObject.transform.position.y,this.gameObject.transform.position.z);
+			this.gameObject.transform.position -= transform.right * Time.deltaTime*moveSpeed;
 			xVel -= Incrementor;
 			if (xVel <= -1)
 				xVel = -1;
@@ -71,7 +82,7 @@ public class PlayerControl : MonoBehaviour {
 		}
 		if(Input.GetKey("s"))
 		{
-			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x,this.gameObject.transform.position.y,this.gameObject.transform.position.z-moveSpeed);
+			this.gameObject.transform.position -= transform.forward * Time.deltaTime*moveSpeed;
 			zVel -= Incrementor;
 			if (zVel <= -1)
 				zVel = -1;
@@ -88,7 +99,7 @@ public class PlayerControl : MonoBehaviour {
 		}
 		if(Input.GetKey("d"))
 		{
-			this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x+moveSpeed,this.gameObject.transform.position.y,this.gameObject.transform.position.z);
+			this.gameObject.transform.position += transform.right * Time.deltaTime*moveSpeed;
 			xVel += Incrementor;
 			if (xVel >= 1)
 				xVel = 1;
@@ -113,22 +124,40 @@ public class PlayerControl : MonoBehaviour {
 			anim.SetFloat ("x", 0);
 		}
 
+		if(xVel != 0 || zVel != 0)
+		{
+			if(!audio.isPlaying)
+			{
+				audio.clip = moveClip;
+				audio.Play ();
+			}
+		}
+		else
+		{
+			if (!Attacking)
+				audio.Stop ();
+		}
+
 		if(Input.GetMouseButtonDown(0))//left click
 		{
 			if(!Attacking)
 			{
+				audio.clip = attackClip;
+				audio.Play ();
 				attackHitBox.SetActive (true);
 				Attacking = true;
 				anim.SetBool("attack",true);
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			this.gameObject.transform.Translate (Vector3.up * Time.deltaTime * 50);
+
+		if(Input.GetKey("q"))
+		{
+			this.gameObject.transform.localEulerAngles = new Vector3 (this.gameObject.transform.localEulerAngles.x, this.gameObject.transform.localEulerAngles.y - rotateSpeed, this.gameObject.transform.localEulerAngles.z);
 		}
 
-		if (Input.GetKeyUp(KeyCode.Space)) {
-			this.gameObject.transform.Translate(Vector3.down * Time.deltaTime*50);
-
+		if(Input.GetKey("e"))
+		{
+			this.gameObject.transform.localEulerAngles = new Vector3(this.gameObject.transform.localEulerAngles.x,this.gameObject.transform.localEulerAngles.y+rotateSpeed,this.gameObject.transform.localEulerAngles.z);
 		}
 	}
 }

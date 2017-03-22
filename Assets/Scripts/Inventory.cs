@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
 	private static int maxAmnt = 99;// max amount of item that can be in a single slot
 	public Item[] itemSlots = new Item[numSlots];
 	public int[] slotAmnts = new int[numSlots];
+	public controller control;
 
 	// Use this for initialization
 	void Start ()

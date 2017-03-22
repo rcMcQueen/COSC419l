@@ -12,6 +12,8 @@ public class crate : MonoBehaviour {
 	public controller controller;
 	public Inventory lootInventory;
 
+	public AudioSource audio;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -27,16 +29,16 @@ public class crate : MonoBehaviour {
 		if(other.tag == "Player")
 		{
 			openText.SetActive (true);
+			controller.inLootRange = true;
+			for(int x = 0;x<loot.Length;x++)
+			{
+				lootInventory.itemSlots [x] = loot [x];
+				lootInventory.slotAmnts [x] = amount [x];
+				loot [x] = null;
+				amount [x] = 0;
+			}
+			controller.lootUpdate ();
 		}
-		controller.inLootRange = true;
-		for(int x = 0;x<loot.Length;x++)
-		{
-			lootInventory.itemSlots [x] = loot [x];
-			lootInventory.slotAmnts [x] = amount [x];
-			loot [x] = null;
-			amount [x] = 0;
-		}
-		controller.lootUpdate ();
 
 	}
 	void OnTriggerExit(Collider other)
@@ -44,16 +46,22 @@ public class crate : MonoBehaviour {
 		if(other.tag == "Player")
 		{
 			openText.SetActive (false);
+			controller.inLootRange = false;
+			int y = 0;
+			for(int x = 0;x<lootInventory.itemSlots.Length;x++)
+			{
+				if(lootInventory.itemSlots[x] != null)
+				{
+					loot [y] = lootInventory.itemSlots [x];
+					amount [y] = lootInventory.slotAmnts [x];
+					y++;
+				}
+				lootInventory.itemSlots [x] = null;
+				lootInventory.slotAmnts [x] = 0;
+			}
+			controller.lootUpdate ();
 		}
-		controller.inLootRange = false;
-		for(int x = 0;x<lootInventory.itemSlots.Length;x++)
-		{
-			loot [x] = lootInventory.itemSlots [x];
-			amount [x] = lootInventory.slotAmnts [x];
-			lootInventory.itemSlots [x] = null;
-			lootInventory.slotAmnts [x] = 0;
-		}
-		controller.lootUpdate ();
+
 	}
 
 }

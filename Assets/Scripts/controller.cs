@@ -11,7 +11,13 @@ public class controller : MonoBehaviour {
 	public int numMenus = 0;
 	public bool inLootRange = false;
 	public slot[] lootSlots;
+	public GameObject player;
 
+	public AudioSource audio;
+
+	public AudioClip crateOpen;
+	public AudioClip menuOpen;
+	public AudioClip clickEffect;
 
 	// Use this for initialization
 	void Start () {
@@ -20,13 +26,23 @@ public class controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		this.transform.position = player.transform.position;//for audio purposes
+
 		if (numMenus > 0)
+		{
+			player.GetComponent<PlayerControl> ().paused = true;
 			Time.timeScale = 0;
+		}
 		else
+		{
+			player.GetComponent<PlayerControl> ().paused = false;
 			Time.timeScale = 1;
+		}
 
 		if(Input.GetKeyDown("i"))
 		{
+			audio.clip = menuOpen;
+			audio.Play ();
 			invCanvas.SetActive (!invCanvas.activeSelf);
 			menusOpen [0] = !menusOpen [0];
 			if(menusOpen[0])
@@ -37,6 +53,8 @@ public class controller : MonoBehaviour {
 
 		if(Input.GetKeyDown("l") && inLootRange)
 		{
+			audio.clip = crateOpen;
+			audio.Play ();
 			lootCanvas.SetActive (!lootCanvas.activeSelf);
 			menusOpen [1] = !menusOpen [1];
 			if(menusOpen[1])
@@ -47,6 +65,8 @@ public class controller : MonoBehaviour {
 
 		if(Input.GetKeyDown("c"))
 		{
+			audio.clip = menuOpen;
+			audio.Play ();
 			charSheet.SetActive (!charSheet.activeSelf);
 			menusOpen [2] = !menusOpen [2];
 			if(menusOpen[2])
@@ -73,5 +93,11 @@ public class controller : MonoBehaviour {
 			lootSlots [x].amountText.text = "" + lootSlots[x].amount;
 			lootSlots[x].pic.gameObject.SetActive (true);
 		}
+	}
+
+	public void playClick()
+	{
+		audio.clip = clickEffect;
+		audio.Play ();
 	}
 }
