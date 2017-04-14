@@ -28,7 +28,7 @@ public class baseController : MonoBehaviour {
 
 	public String getLootTime()
 	{
-		return "Number of worker loot drops: " + numLootDrops + "\nTime till next drop: " + (int)(lootTimer.getTimeDiffrence () % 10) + " mins";
+		return "Number of worker loot drops: " + numLootDrops + "\nTime till next drop: " + (10-(int)(lootTimer.getTimeDiffrence () % 10)) + " mins";
 	}
 
 	public void workerTimer()

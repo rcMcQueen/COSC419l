@@ -129,10 +129,10 @@ public class craftingBtn : MonoBehaviour {
 					Debug.Log ("X: " + (itemIndex [x] - storageInv.itemSlots.Length));
 					playerInv.itemSlots [x] = resultItem;
 					playerInv.slotAmnts [x] = 1;
-					playerInv.slots [itemIndex [x]- storageInv.itemSlots.Length].GetComponent<Slot> ().pic.gameObject.SetActive (true);
-					playerInv.slots[itemIndex [x]- storageInv.itemSlots.Length].GetComponent<Slot>().pic.sprite = resultItem.icon;
-					playerInv.slots[itemIndex [x]- storageInv.itemSlots.Length].GetComponent<Slot>().amount = 1;
-					playerInv.slots [itemIndex [x]- storageInv.itemSlots.Length].GetComponent<Slot> ().amountText.text = "1";
+					playerInv.slots [itemIndex [x]].GetComponent<Slot> ().pic.gameObject.SetActive (true);
+					playerInv.slots[itemIndex [x]].GetComponent<Slot>().pic.sprite = resultItem.icon;
+					playerInv.slots[itemIndex [x]].GetComponent<Slot>().amount = 1;
+					playerInv.slots [itemIndex [x]].GetComponent<Slot> ().amountText.text = "1";
 					loadCraft ();//update menus
 					return;
 				}
