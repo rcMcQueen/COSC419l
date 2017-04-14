@@ -4,7 +4,7 @@ using System.Collections;
 //armor equipped by player, mostly for checking equipType and adding defense
 public class Armor : Item
 {
-	int defense;
+	public int defense;
 	public int equipType; //0=head,1=body,2=legs,3=feet
 
 	// Use this for initialization

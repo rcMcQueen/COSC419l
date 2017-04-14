@@ -10,6 +10,8 @@ public class Item : MonoBehaviour {
 	int ID;
 	public Sprite icon;
 	public int ammoType;//0 = not ammo
+	public string name;
+	public string desc;
 
 	public Item(int ID,Sprite icon)
 	{
