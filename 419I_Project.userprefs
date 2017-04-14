@@ -1,20 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\slot.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerStats.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerControl.cs" Line="10" Column="35" />
-      <File FileName="Assets\Scripts\Armor.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\enemy.cs" Line="65" Column="3" />
-      <File FileName="Assets\Scripts\crate.cs" Line="28" Column="3" />
-      <File FileName="Assets\Scripts\Inventory.cs" Line="16" Column="28" />
-      <File FileName="Assets\Scripts\controller.cs" Line="14" Column="27" />
-      <File FileName="Assets\Scripts\slot.cs" Line="155" Column="4" />
-      <File FileName="Assets\Scripts\ConsumableItem.cs" Line="27" Column="23" />
-      <File FileName="Assets\Scripts\Item.cs" Line="12" Column="36" />
-      <File FileName="Assets\Scripts\tempItem.cs" Line="14" Column="20" />
-      <File FileName="Assets\Scripts\playerStats.cs" Line="13" Column="27" />
-      <File FileName="Assets\Scripts\playerAttack.cs" Line="20" Column="3" />
-      <File FileName="Assets\Scripts\Weapon.cs" Line="7" Column="17" />
+      <File FileName="Assets\Scripts\baseController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerStats.cs" Line="72" Column="5" />
+      <File FileName="Assets\Scripts\mapIcon.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\initScene.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Slot.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Controller.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\craftingBtn.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\statBars.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\toolTip.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MovingItem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ConsumableItem.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
