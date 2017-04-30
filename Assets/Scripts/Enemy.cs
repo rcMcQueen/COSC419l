@@ -57,7 +57,6 @@ public class Enemy : Character {
 			{
 				anim.clip = clips[0].GetClip("attack01");
 				anim.Play ();
-				Debug.Log ("activate hitbox");
 				attackHitBox.SetActive (true);
 				attacked = true;
 			}

@@ -95,7 +95,6 @@ public class Controller : MonoBehaviour {
 	{
 		for(int x = 0;x<lootSlots.Length;x++)
 		{
-			Debug.Log (x);
 			if (lootSlots [x].inventory.itemSlots [x] == null)
 			{
 				lootSlots [x].pic.sprite = null;

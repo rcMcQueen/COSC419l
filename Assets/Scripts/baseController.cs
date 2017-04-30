@@ -12,12 +12,26 @@ public class baseController : MonoBehaviour {
 	public Text lowerText;
 	Inventory storageInv;
 	int numLootDrops;
+	public Slot[] slots;
 
 
 	// Use this for initialization
 	void Start () {
 		numLootDrops = 0;
 		storageInv = GameObject.FindGameObjectWithTag ("lootInv").GetComponent<Inventory> ();
+
+		for(int x = 0;x<slots.Length;x++)//need to assign inventorys to slots, otherwise error when making item in crafting menu before visiting storage menu
+		{
+			if (slots[x].invType == 0)
+				slots[x].inventory = GameObject.FindGameObjectWithTag ("lootInv").GetComponent<Inventory>();
+			else if (slots[x].invType == 1)
+				slots[x].inventory = GameObject.FindGameObjectWithTag ("playerInv").GetComponent<Inventory>();
+			else if (slots[x].invType == 2)
+				slots[x].inventory = GameObject.FindGameObjectWithTag ("playerGear").GetComponent<Inventory>();
+
+			if(slots[x].inventory.slots[slots[x].idNum] == null)
+				slots[x].inventory.slots [slots[x].idNum] = slots[x].gameObject;
+		}
 	}
 	
 	// Update is called once per frame

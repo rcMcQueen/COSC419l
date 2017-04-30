@@ -1233,9 +1233,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 96746355}
-  - component: {fileID: 96746358}
   - component: {fileID: 96746357}
   - component: {fileID: 96746356}
+  - component: {fileID: 96746358}
   m_Layer: 5
   m_Name: Slot (1)
   m_TagString: Untagged
@@ -1331,22 +1331,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 96746354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5797723c069e93942ba31d6be71abca2, type: 3}
+  m_Script: {fileID: 11500000, guid: e53aee83f5d190747ac070b4fd5311b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pic: {fileID: 318730666}
-  amountText: {fileID: 349308925}
-  amount: 0
-  idNum: 0
-  MovingItem: {fileID: 1188249922}
-  inventory: {fileID: 0}
-  isChar: 0
-  player: {fileID: 0}
-  gearPos: []
-  isLoot: 1
   tooltip: {fileID: 1853014561}
-  atHomeBase: 0
-  invType: 0
+  itemName: 
+  desc: 
+  active: 0
 --- !u!1 &105369430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2411,11 +2403,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lowerText: {fileID: 65544008}
-  images:
-  - {fileID: 1756781124}
-  - {fileID: 318730666}
-  - {fileID: 500395800}
-  - {fileID: 865922757}
+  slots:
+  - {fileID: 209382325}
+  - {fileID: 96746358}
+  - {fileID: 911062586}
+  - {fileID: 1620819575}
   amountTexts:
   - {fileID: 28121584}
   - {fileID: 349308925}
@@ -3541,9 +3533,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 209382322}
-  - component: {fileID: 209382325}
   - component: {fileID: 209382324}
   - component: {fileID: 209382323}
+  - component: {fileID: 209382325}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -3639,22 +3631,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 209382321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5797723c069e93942ba31d6be71abca2, type: 3}
+  m_Script: {fileID: 11500000, guid: e53aee83f5d190747ac070b4fd5311b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pic: {fileID: 1756781124}
-  amountText: {fileID: 28121584}
-  amount: 0
-  idNum: 0
-  MovingItem: {fileID: 1188249922}
-  inventory: {fileID: 0}
-  isChar: 0
-  player: {fileID: 0}
-  gearPos: []
-  isLoot: 1
   tooltip: {fileID: 1853014561}
-  atHomeBase: 0
-  invType: 0
+  itemName: 
+  desc: 
+  active: 0
 --- !u!1 &233617284
 GameObject:
   m_ObjectHideFlags: 0
@@ -4729,11 +4713,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lowerText: {fileID: 65544008}
-  images:
-  - {fileID: 1756781124}
-  - {fileID: 318730666}
-  - {fileID: 500395800}
-  - {fileID: 865922757}
+  slots:
+  - {fileID: 209382325}
+  - {fileID: 96746358}
+  - {fileID: 911062586}
+  - {fileID: 1620819575}
   amountTexts:
   - {fileID: 28121584}
   - {fileID: 349308925}
@@ -6382,6 +6366,52 @@ MonoBehaviour:
   - {fileID: 114918235814235476, guid: bf7be907b8066d1419874ce6b5484879, type: 2}
   - {fileID: 114480048590767992, guid: a85ae4c4fdad2714a9c10371b39b9606, type: 2}
   lowerText: {fileID: 1772857773}
+  slots:
+  - {fileID: 1287582381}
+  - {fileID: 1825715115}
+  - {fileID: 421958914}
+  - {fileID: 202240599}
+  - {fileID: 737243987}
+  - {fileID: 299174531}
+  - {fileID: 193050093}
+  - {fileID: 1304891969}
+  - {fileID: 132560991}
+  - {fileID: 2073865250}
+  - {fileID: 861331552}
+  - {fileID: 970802671}
+  - {fileID: 496775625}
+  - {fileID: 2134370956}
+  - {fileID: 3226206}
+  - {fileID: 2084777672}
+  - {fileID: 1227912768}
+  - {fileID: 807134202}
+  - {fileID: 2147201466}
+  - {fileID: 966705614}
+  - {fileID: 335729251}
+  - {fileID: 2065555460}
+  - {fileID: 1413206740}
+  - {fileID: 534275258}
+  - {fileID: 62751972}
+  - {fileID: 479332272}
+  - {fileID: 56024208}
+  - {fileID: 1481950277}
+  - {fileID: 202003781}
+  - {fileID: 1152447686}
+  - {fileID: 460663694}
+  - {fileID: 2087733914}
+  - {fileID: 814995956}
+  - {fileID: 1959000504}
+  - {fileID: 1801669711}
+  - {fileID: 906243013}
+  - {fileID: 1694053259}
+  - {fileID: 884815043}
+  - {fileID: 279894680}
+  - {fileID: 1384231303}
+  - {fileID: 1899823724}
+  - {fileID: 1825709422}
+  - {fileID: 285490180}
+  - {fileID: 1166856818}
+  - {fileID: 888484076}
 --- !u!82 &446973789
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11262,9 +11292,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 911062583}
-  - component: {fileID: 911062586}
   - component: {fileID: 911062585}
   - component: {fileID: 911062584}
+  - component: {fileID: 911062586}
   m_Layer: 5
   m_Name: Slot (2)
   m_TagString: Untagged
@@ -11360,22 +11390,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 911062582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5797723c069e93942ba31d6be71abca2, type: 3}
+  m_Script: {fileID: 11500000, guid: e53aee83f5d190747ac070b4fd5311b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pic: {fileID: 500395800}
-  amountText: {fileID: 1231911440}
-  amount: 0
-  idNum: 0
-  MovingItem: {fileID: 1188249922}
-  inventory: {fileID: 0}
-  isChar: 0
-  player: {fileID: 0}
-  gearPos: []
-  isLoot: 1
   tooltip: {fileID: 1853014561}
-  atHomeBase: 0
-  invType: 0
+  itemName: 
+  desc: 
+  active: 0
 --- !u!1 &913871583
 GameObject:
   m_ObjectHideFlags: 0
@@ -15250,11 +15272,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lowerText: {fileID: 65544008}
-  images:
-  - {fileID: 1756781124}
-  - {fileID: 318730666}
-  - {fileID: 500395800}
-  - {fileID: 865922757}
+  slots:
+  - {fileID: 209382325}
+  - {fileID: 96746358}
+  - {fileID: 911062586}
+  - {fileID: 1620819575}
   amountTexts:
   - {fileID: 28121584}
   - {fileID: 349308925}
@@ -17724,9 +17746,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1620819572}
-  - component: {fileID: 1620819575}
   - component: {fileID: 1620819574}
   - component: {fileID: 1620819573}
+  - component: {fileID: 1620819575}
   m_Layer: 5
   m_Name: Slot (3)
   m_TagString: Untagged
@@ -17822,22 +17844,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1620819571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5797723c069e93942ba31d6be71abca2, type: 3}
+  m_Script: {fileID: 11500000, guid: e53aee83f5d190747ac070b4fd5311b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pic: {fileID: 865922757}
-  amountText: {fileID: 254074747}
-  amount: 0
-  idNum: 0
-  MovingItem: {fileID: 1188249922}
-  inventory: {fileID: 0}
-  isChar: 0
-  player: {fileID: 0}
-  gearPos: []
-  isLoot: 1
   tooltip: {fileID: 1853014561}
-  atHomeBase: 0
-  invType: 0
+  itemName: 
+  desc: 
+  active: 0
 --- !u!1 &1647684106
 GameObject:
   m_ObjectHideFlags: 0
@@ -18393,11 +18407,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lowerText: {fileID: 65544008}
-  images:
-  - {fileID: 1756781124}
-  - {fileID: 318730666}
-  - {fileID: 500395800}
-  - {fileID: 865922757}
+  slots:
+  - {fileID: 209382325}
+  - {fileID: 96746358}
+  - {fileID: 911062586}
+  - {fileID: 1620819575}
   amountTexts:
   - {fileID: 28121584}
   - {fileID: 349308925}
@@ -21934,11 +21948,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lowerText: {fileID: 65544008}
-  images:
-  - {fileID: 1756781124}
-  - {fileID: 318730666}
-  - {fileID: 500395800}
-  - {fileID: 865922757}
+  slots:
+  - {fileID: 209382325}
+  - {fileID: 96746358}
+  - {fileID: 911062586}
+  - {fileID: 1620819575}
   amountTexts:
   - {fileID: 28121584}
   - {fileID: 349308925}

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class craftingBtn : MonoBehaviour {
 
 	public Text lowerText;
-	public Image[] images;
+	public craftingSlot[] slots;
 	public Text[] amountTexts;
 	public Item[] ingrediants;
 	public int[] itemAmnts;
@@ -60,10 +60,13 @@ public class craftingBtn : MonoBehaviour {
 		for(int x = 0;x<amountTexts.Length;x++)
 		{
 			amountTexts [x].gameObject.SetActive (true);
-			images [x].gameObject.SetActive (true);
+			slots [x].pic.gameObject.SetActive (true);
 			if (ingrediants [x] == null)
+			{
+				slots [x].emptySlot ();
 				continue;
-			images [x].sprite = ingrediants [x].icon;
+			}
+			slots [x].setItem (ingrediants [x], ingrediants [x].icon, ingrediants [x].name, ingrediants [x].desc);
 			amountTexts [x].text = "x" + itemAmnts [x];
 		}
 		checkForItems ();
@@ -81,11 +84,9 @@ public class craftingBtn : MonoBehaviour {
 				break;
 			if(itemIndex[x] < storageInv.itemSlots.Length)//index from storage
 			{
-				Debug.Log (itemIndex [x]);
 				storageInv.slotAmnts [itemIndex [x]] -= itemAmnts [x];
 				if(storageInv.slotAmnts [itemIndex [x]] <= 0)//if no more of item left, remove it
 				{
-					Debug.Log ("LOL");
 					storageInv.itemSlots [itemIndex [x]] = null;
 					storageInv.slotAmnts [itemIndex [x]] = 0;
 					storageInv.slots [itemIndex [x]].GetComponent<Slot> ().pic.gameObject.SetActive (false);
@@ -120,19 +121,19 @@ public class craftingBtn : MonoBehaviour {
 				playerInv.slotAmnts [craftItemIndex-storageInv.itemSlots.Length]++;
 			}
 		}
-		else
+		else//item doesnt exist yet, make it and add to player inventory
 		{
 			for(int x = 0;x<playerInv.itemSlots.Length;x++)
 			{
 				if(playerInv.itemSlots[x] == null)
 				{
-					Debug.Log ("X: " + (itemIndex [x] - storageInv.itemSlots.Length));
 					playerInv.itemSlots [x] = resultItem;
 					playerInv.slotAmnts [x] = 1;
-					playerInv.slots [itemIndex [x]].GetComponent<Slot> ().pic.gameObject.SetActive (true);
-					playerInv.slots[itemIndex [x]].GetComponent<Slot>().pic.sprite = resultItem.icon;
-					playerInv.slots[itemIndex [x]].GetComponent<Slot>().amount = 1;
-					playerInv.slots [itemIndex [x]].GetComponent<Slot> ().amountText.text = "1";
+					//playerInv.slots [itemIndex [x]].GetComponent<Slot> ().pic.gameObject.SetActive (true);
+					playerInv.slots [x].GetComponent<Slot> ().pic.gameObject.SetActive (true);
+					playerInv.slots[x].GetComponent<Slot>().pic.sprite = resultItem.icon;
+					playerInv.slots[x].GetComponent<Slot>().amount = 1;
+					playerInv.slots [x].GetComponent<Slot> ().amountText.text = "1";
 					loadCraft ();//update menus
 					return;
 				}
@@ -214,7 +215,8 @@ public class craftingBtn : MonoBehaviour {
 			else if (itemIndex[x] == -2)//don't need ingrediant
 			{
 				amountTexts [x].gameObject.SetActive (false);
-				images [x].gameObject.SetActive (false);
+				slots [x].pic.gameObject.SetActive (false);
+				//images [x].gameObject.SetActive (false);
 			}
 			else
 				amountTexts [x].color = Color.green;
