@@ -4,35 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Slot : MonoBehaviour, IPointerClickHandler {
+public class slot : MonoBehaviour, IPointerClickHandler {
 	
 	public Image pic;
 	public Text amountText;
 	Sprite icon = null;
 	public int amount=0;
 	public int idNum;
-	public GameObject MovingItem;
+	public GameObject tempitem;
 	public Inventory inventory;
 	public bool isChar = false;
-	public PlayerStats player;
+	public playerStats player;
 	public Transform[] gearPos;
 	public bool isLoot;
-	public toolTip tooltip;
-	public bool atHomeBase = false;
-	public int invType = 0;// 0 = loot, 1 = playerInv, 2 = playerGear
 
 	// Use this for initialization
 	void Start () {
-
-		if (invType == 0)
-			inventory = GameObject.FindGameObjectWithTag ("lootInv").GetComponent<Inventory>();
-		else if (invType == 1)
-			inventory = GameObject.FindGameObjectWithTag ("playerInv").GetComponent<Inventory>();
-		else if (invType == 2)
-			inventory = GameObject.FindGameObjectWithTag ("playerGear").GetComponent<Inventory>();
-
-		if(inventory.slots[idNum] == null)
-			inventory.slots [idNum] = this.gameObject;
+		if(inventory == null)
+		{
+			pic.gameObject.SetActive (false);
+			return;
+		}
 
 		if(idNum >= inventory.itemSlots.Length)
 		{
@@ -70,41 +62,26 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	public void moveItem()
 	{
 		
-		if(inventory.itemSlots[idNum] == null && MovingItem.GetComponent<MovingItem>().item != null)//have item and put it in empty slot
+		if(inventory.itemSlots[idNum] == null && tempitem.GetComponent<tempItem>().item != null)//have item and put it in empty slot
 		{
-			if(inventory.control != null)
-				inventory.control.playClick ();
+			inventory.control.playClick ();
 			Debug.Log ("Trying to place item in empty slot");
-			if ((isChar && !(MovingItem.GetComponent<MovingItem> ().item is Weapon || MovingItem.GetComponent<MovingItem> ().item is Armor)))//not trying to equip non equipable item
-				return;
-			if (isChar && !MovingItem.GetComponent<MovingItem> ().item is Weapon && (idNum == 4 || idNum == 5))//trying to place non weapon in weapon space
-				return;
-			if (isChar && MovingItem.GetComponent<MovingItem> ().item is Weapon && !(idNum == 4 || idNum == 5))//trying to place non weapon in weapon space
-				return;
-			if (isChar && !MovingItem.GetComponent<MovingItem> ().item is Armor)//armor checks
-			{
-				if (idNum == 4 || idNum == 5)//trying to place armor in weapon slot
-					return;
-				if (((Armor)MovingItem.GetComponent<MovingItem> ().item).equipType != idNum) //trying to put wrong armor in slot, ex pants in helmet slot
-					return;
-			}
-			inventory.itemSlots [idNum] = MovingItem.GetComponent<MovingItem>().item;
-			amount = MovingItem.GetComponent<MovingItem>().amount;
+			inventory.itemSlots [idNum] = tempitem.GetComponent<tempItem>().item;
+			amount = tempitem.GetComponent<tempItem>().amount;
 			inventory.slotAmnts [idNum] = amount;
 			if(!isChar)
 				amountText.text = "" + amount;
-			MovingItem.GetComponent<MovingItem> ().item = null;
-			MovingItem.GetComponent<MovingItem> ().amount = 0;
-			pic.sprite = MovingItem.GetComponent<Image> ().sprite;
-			MovingItem.GetComponent<Image> ().sprite = null;
+			tempitem.GetComponent<tempItem> ().item = null;
+			tempitem.GetComponent<tempItem> ().amount = 0;
+			pic.sprite = tempitem.GetComponent<Image> ().sprite;
+			tempitem.GetComponent<Image> ().sprite = null;
 			pic.gameObject.SetActive (true);
-			MovingItem.GetComponent<Image> ().enabled = false;
+			tempitem.GetComponent<Image> ().enabled = false;
 			if(isChar)
 			{
 				if(inventory.itemSlots [idNum] is Weapon)//update player attack with weapon attack
 				{
-					player.attack = (player.attack + ((Weapon)inventory.itemSlots [idNum]).atk);
-					player.updateText ();
+					player.setAttack (player.getAttack() + ((Weapon)inventory.itemSlots [idNum]).atk);
 				}
 				GameObject clone = null;
 				if(idNum == 4)//right hand weapon
@@ -123,47 +100,32 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 			}
 		}
 
-		else if (inventory.itemSlots[idNum] != null && MovingItem.GetComponent<MovingItem>().item != null)//if holding item and slot has item, switch em
+		else if (inventory.itemSlots[idNum] != null && tempitem.GetComponent<tempItem>().item != null)//if holding item and slot has item, switch em
 		{
-			if(inventory.control != null)
-				inventory.control.playClick ();
+			inventory.control.playClick ();
 			Debug.Log ("trying to switch items");
-			if ((isChar && !(MovingItem.GetComponent<MovingItem> ().item is Weapon || MovingItem.GetComponent<MovingItem> ().item is Armor)))//not trying to equip non equipable item
-				return;
-			if (isChar && !MovingItem.GetComponent<MovingItem> ().item is Weapon && (idNum == 4 || idNum == 5))//trying to place non weapon in weapon space
-				return;
-			if (isChar && MovingItem.GetComponent<MovingItem> ().item is Weapon && !(idNum == 4 || idNum == 5))//trying to place non weapon in weapon space
-				return;
-			if (isChar && !MovingItem.GetComponent<MovingItem> ().item is Armor)//armor checks
-			{
-				if (idNum == 4 || idNum == 5)//trying to place armor in weapon slot
-					return;
-				if (((Armor)MovingItem.GetComponent<MovingItem> ().item).equipType != idNum) //trying to put wrong armor in slot, ex pants in helmet slot
-					return;
-			}
 			//hold current inventory stuff in temp vars
 			Item temp = inventory.itemSlots [idNum];
 			int tempAmnt = amount;
 			Sprite tempSprite = pic.sprite;
 
-			inventory.itemSlots [idNum] = MovingItem.GetComponent<MovingItem>().item;
-			amount = MovingItem.GetComponent<MovingItem>().amount;
+			inventory.itemSlots [idNum] = tempitem.GetComponent<tempItem>().item;
+			amount = tempitem.GetComponent<tempItem>().amount;
 			inventory.slotAmnts [idNum] = amount;
 			if(!isChar)
 				amountText.text = "" + amount;
-			pic.sprite = MovingItem.GetComponent<Image> ().sprite;
+			pic.sprite = tempitem.GetComponent<Image> ().sprite;
 
-			MovingItem.GetComponent<MovingItem> ().item = temp;
-			MovingItem.GetComponent<MovingItem> ().amount = tempAmnt;
-			MovingItem.GetComponent<Image> ().sprite = tempSprite;
+			tempitem.GetComponent<tempItem> ().item = temp;
+			tempitem.GetComponent<tempItem> ().amount = tempAmnt;
+			tempitem.GetComponent<Image> ().sprite = tempSprite;
 
 			if(isChar)
 			{
 				if(inventory.itemSlots [idNum] is Weapon)//update player attack with weapon attack
 				{
 					
-					player.attack = (player.attack + ((Weapon)inventory.itemSlots [idNum]).atk - ((Weapon)MovingItem.GetComponent<MovingItem> ().item).atk);
-					player.updateText ();
+					player.setAttack (player.getAttack() + ((Weapon)inventory.itemSlots [idNum]).atk - ((Weapon)tempitem.GetComponent<tempItem> ().item).atk);
 				}
 				GameObject clone = null;
 				if(idNum == 4)//right hand weapon
@@ -184,13 +146,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 			}
 		}
 
-		else if (inventory.itemSlots[idNum] != null && MovingItem.GetComponent<MovingItem>().item == null)//dont have item, take it from slot
+		else if (inventory.itemSlots[idNum] != null && tempitem.GetComponent<tempItem>().item == null)//dont have item, take it from slot
 		{
-			if(inventory.control != null)
-				inventory.control.playClick ();
-			MovingItem.GetComponent<MovingItem> ().item = inventory.itemSlots [idNum];
-			MovingItem.GetComponent<MovingItem> ().amount = amount;
-			MovingItem.GetComponent<Image> ().sprite = pic.sprite;
+			inventory.control.playClick ();
+			tempitem.GetComponent<tempItem> ().item = inventory.itemSlots [idNum];
+			tempitem.GetComponent<tempItem> ().amount = amount;
+			tempitem.GetComponent<Image> ().sprite = pic.sprite;
 
 			inventory.itemSlots [idNum] = null;
 			inventory.slotAmnts [idNum] = 0;
@@ -199,27 +160,21 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 				amountText.text = "";
 			pic.sprite = null;
 			pic.gameObject.SetActive (false);
-			MovingItem.GetComponent<Image> ().enabled = true;
+			tempitem.GetComponent<Image> ().enabled = true;
 
 			if(isChar)
 			{
-				if(MovingItem.GetComponent<MovingItem>().item is Weapon)//update player attack with weapon attack
+				if(tempitem.GetComponent<tempItem>().item is Weapon)//update player attack with weapon attack
 				{
-					player.attack = (player.attack - ((Weapon)MovingItem.GetComponent<MovingItem> ().item).atk);
-					player.updateText ();
-					if(idNum == 4)//right hand weapon
-					{
-						GameObject.Destroy (gearPos[0].GetChild(0).gameObject);
-					}
-					else if (idNum == 5) //left hand weapon
-					{
-						GameObject.Destroy (gearPos[1].GetChild(0).gameObject);
-					}
+					player.setAttack (player.getAttack() - ((Weapon)tempitem.GetComponent<tempItem> ().item).atk);
 				}
-				else if (MovingItem.GetComponent<MovingItem>().item is Armor)
+				if(idNum == 4)//right hand weapon
 				{
-					player.defense = (player.defense - ((Armor)MovingItem.GetComponent<MovingItem> ().item).defense);
-					player.updateText ();
+					GameObject.Destroy (gearPos[0].GetChild(0).gameObject);
+				}
+				else if (idNum == 5) //left hand weapon
+				{
+					GameObject.Destroy (gearPos[1].GetChild(0).gameObject);
 				}
 			}
 		}
@@ -227,34 +182,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 
 	public void consumeItem()
 	{
-		if (atHomeBase)//dont want to consume items at homebase
-			return;
-
 		Debug.Log ("Consume item");
-		if(inventory.itemSlots[idNum] is ConsumableItem)
-		{
-			if (((ConsumableItem)inventory.itemSlots [idNum]).Consume ())
-			{
-				Debug.Log ("returned true, decrement item");
-				inventory.slotAmnts [idNum]--;
-				if(inventory.slotAmnts[idNum] <= 0)
-				{
-					inventory.itemSlots [idNum] = null;
-					inventory.slotAmnts [idNum] = 0;
-					amount = 0;
-					if(!isChar)
-						amountText.text = "";
-					pic.sprite = null;
-					pic.gameObject.SetActive (false);
-					tooltip.gameObject.SetActive (false);
-				}
-				else
-				{
-					amount--;
-					amountText.text = ""+amount;
-				}
-			}
-		}
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
@@ -263,19 +191,5 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 			moveItem ();
 		else if (eventData.button == PointerEventData.InputButton.Right)
 			consumeItem ();
-	}
-
-	public void onEnter()
-	{
-		if (inventory.itemSlots [idNum] != null) 
-		{
-			tooltip.gameObject.SetActive (true);
-			tooltip.updateText (inventory.itemSlots [idNum].name, inventory.itemSlots [idNum].desc);
-		}
-	}
-
-	public void onExit()
-	{
-		tooltip.gameObject.SetActive (false);
 	}
 }

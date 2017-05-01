@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crate : MonoBehaviour {
+public class crate : MonoBehaviour {
 
 	bool beenOpened=false;
 	int lootLevel;
 	public Item[] loot;
 	public int[] amount;
 	public GameObject openText;
-	public Controller controller;
+	public controller controller;
 	public Inventory lootInventory;
 
 	public AudioSource audio;
 
 	// Use this for initialization
 	void Start () {
-		if (lootInventory == null)
-			lootInventory = GameObject.FindGameObjectWithTag ("lootInv").GetComponent<Inventory> ();
+		
 	}
 	
 	// Update is called once per frame

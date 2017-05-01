@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : Character {
+public class enemy : MonoBehaviour {
 
 	public GameObject player;
+
+	int hp;
+	int attack;
+	int defense;
 
 	bool trackingPlayer;
 	bool stopMoving;
@@ -23,10 +27,12 @@ public class Enemy : Character {
 
 	// Use this for initialization
 	void Start () {
+		hp = 10;
+		attack = 4;
+		defense = 0;
 		stopMoving = false;
 		trackingPlayer = false;
 		attacked = false;
-		GetComponent<NavMeshAgent> ().speed = moveSpeed;
 	}
 	
 	// Update is called once per frame
@@ -34,10 +40,7 @@ public class Enemy : Character {
 		if(attacked)
 		{
 			if (!anim.isPlaying)
-			{
 				attacked = false;
-				attackHitBox.SetActive (false);
-			}
 		}
 		if (trackingPlayer && !stopMoving)
 		{
@@ -57,8 +60,6 @@ public class Enemy : Character {
 			{
 				anim.clip = clips[0].GetClip("attack01");
 				anim.Play ();
-				attackHitBox.SetActive (true);
-				attacked = true;
 			}
 		}
 	}
@@ -69,8 +70,8 @@ public class Enemy : Character {
 
 		audio.Play ();
 		Debug.Log ("enemy dmg taken, HP: " + hp);
-		hp = hp - (dmg - defense);
-		anim.Stop ();
+		hp = hp -(dmg - defense);
+		anim	.Stop ();
 		anim.clip = clips[2].GetClip("damage");
 		anim.Play ();
 		attacked = true;
@@ -88,7 +89,7 @@ public class Enemy : Character {
 			audio.clip = detectSound;
 			audio.Play ();
 			trackingPlayer = true;
-			GetComponent<NavMeshAgent> ().destination = player.transform.position; //sometimes makes error when destroyed sicne it can't move somewhere...when it doesnt exist....
+			GetComponent<NavMeshAgent> ().destination = player.transform.position;
 			//resize box collider to just around model
 			GetComponent<BoxCollider> ().size = new Vector3 (15, 30, 15);
 			GetComponent<BoxCollider> ().center = new Vector3 (0, 7, 0);
